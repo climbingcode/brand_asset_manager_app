@@ -18,9 +18,9 @@ get '/account/:id' do
 end
 
 post '/signin' do
-	@account = Account.where( params[:username] ).where ( params[:password] )
-	if @account != nil
-		redirect "account/#{params[@account.id]}"
+	@account = Account.where(username: params[:username] ).where(password: params[:password] )
+	if @account[0] != nil
+		redirect "account/#{ @account[0].id }"
 	else
 		raise "This is not an account"
 	end
@@ -30,7 +30,6 @@ end
 
 
 post '/dashboard/:id' do
-
 
 	redirect "/#{params[:id]}"
 end
