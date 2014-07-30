@@ -65,14 +65,17 @@
 
       <h3>Body</h3>
       <!-- <label>Email:</label> -->
+      <span class="custom-dropdown custom-dropdown--white">
       <div class="styled-select">
-        <select name="body-type">
+        <select name="body-type" class="custom-dropdown__select custom-dropdown__select--white">
           <option value="proxima-nova">Proxima Nova</option>
           <option value="alternate-gothic">Alternate Gothic</option>
           <option value="adelle">Adelle</option>
           <option value="audi">Audi</option>
         </select>
       </div><!--styled select-->
+      </span>
+
       </div>
       </div>
 
@@ -83,16 +86,17 @@
 
       <h3>Mission Statement</h3>
       <!-- <label>Mission Statement</label> -->
-      <textarea type="text" name="mission-statement"  placeholder="Mission Statement">
+      <textarea type="text" name="mission-statement"  placeholder="Mission Statement" class="mission-statement" rows="1"> </textarea>
 
 
     <div>
       <!-- <label>Brand Story</label> -->
-      <textarea type="text" name="brand-story"  placeholder="Brand Story"> </textarea>
+      <h3>About Your Brand</h3>
+      <textarea type="text" name="brand-story"  placeholder="Brand Story" class="brand-story" rows="5"> </textarea>
     </div>
 
     <div>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" class="dashboard-submit">
     </div>
   </form>
 
