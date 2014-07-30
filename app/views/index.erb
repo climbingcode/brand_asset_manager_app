@@ -1,8 +1,24 @@
+
 <h1>Home Page</h1>
 
 <!-- login form  -->
 
 <form action='/dashboard' method='post'>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="navbar-collapse collapse">
+<form action='/signin' method='post' class="navbar-form navbar-right" role="form">
+
     <div>
       <label>Username</label>
       <input type="text" name="username" placeholder="Username" >
@@ -17,6 +33,69 @@
      <button type="submit">Sign in</button>
     </div>
 </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+<!-- login form  -->
+
+
+
+
+
+<!-- Sign In Form -->
+
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Sign Up
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form action='/signup' method='post'>
+          
+          <div>
+            <label>Brand</label>
+            <input type="text" name="brand" placeholder="Brand" >
+          </div>
+
+          <div>
+            <label>Email</label>
+            <input type="text" name="Email" placeholder="Email" >
+          </div>
+
+          <div>
+            <label>Username</label>
+            <input type="text" name="username"  placeholder="Username">
+          </div>
+
+          <div>
+            <label>Emai</label>
+            <input type="text" name="password"  placeholder="Password">
+          </div>
+
+          <div>
+           <button type="submit">Register</button>
+          </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 <% if @session != nil%>

@@ -1,7 +1,27 @@
+    <div class="navbar  navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">BrandCamp</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form">
+              <input type="submit" placeholder="Logout" class="form-control logout-button" value="Logout">
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+<section class="col-sm-6 col-xs-10 form-wrapper">
+  <div class="header-wrapper">
+    <h1>Dashboard</h1>
+  </div>
+  <div class="form-background">
 
-<section class="col-sm-8 col-xs-12">
-
-  <h1>Dashboard</h1>
 
   <form action="/dashboard/<%= session[:id] %>" method="post"  enctype="multipart/form-data">
 
@@ -11,44 +31,53 @@
   <h2>Colors</h2>
     <div>
       <!-- <label>Name:</label> -->
-      <input type="text" name="hexcolor1"  placeholder="Name">
+      <input type="text" name="hexcolor1"  placeholder="Name" class="color-input">
     </div>
 
     <div>
       <!-- <label>Name:</label> -->
-      <input type="text" name="hexcolor1"  placeholder="Name">
+      <input type="text" name="hexcolor1"  placeholder="Name" class="color-input">
     </div>
 
     <div>
       <!-- <label>Name:</label> -->
-      <input type="text" name="hexcolor1"  placeholder="Name">
+      <input type="text" name="hexcolor1"  placeholder="Name" class="color-input">
     </div>
+
+    <div class="row">
 
   <h2>Typography</h2>
 
-
+    <div class="headline-text-select-wrapper col-sm-6">
       <h3>Headline</h3>
       <!-- <label>Email:</label> -->
       <div class="styled-select">
         <select name="headline-type">
-          <option value="proxima-nova">Proxima Nova</option>
-          <option value="alternate-gothic">Alternate Gothic</option>
-          <option value="adelle">Adelle</option>
-          <option value="audi">Audi</option>
+          <option value="proxima-nova" class="proxima-nova">Proxima Nova</option>
+          <option value="alternate-gothic" class="alternate-gothic">Alternate Gothic</option>
+          <option value="adelle" class="adelle">Adelle</option>
+          <option value="audi" class="proxima-nova">Audi</option>
         </select>
       </div><!--style select-->
+      </div>
 
+      <div class="body-text-select-wrapper col-sm-6">
 
       <h3>Body</h3>
       <!-- <label>Email:</label> -->
+      <span class="custom-dropdown custom-dropdown--white">
       <div class="styled-select">
-        <select name="body-type">
+        <select name="body-type" class="custom-dropdown__select custom-dropdown__select--white">
           <option value="proxima-nova">Proxima Nova</option>
           <option value="alternate-gothic">Alternate Gothic</option>
           <option value="adelle">Adelle</option>
           <option value="audi">Audi</option>
         </select>
       </div><!--styled select-->
+      </span>
+
+      </div>
+      </div>
 
 
 
@@ -57,18 +86,24 @@
 
       <h3>Mission Statement</h3>
       <!-- <label>Mission Statement</label> -->
-      <input type="text" name="mission-statement"  placeholder="Mission Statement">
+      <textarea type="text" name="mission-statement"  placeholder="Mission Statement" class="mission-statement" rows="1"> </textarea>
 
 
     <div>
       <!-- <label>Brand Story</label> -->
-      <textarea type="text" name="brand-story"  placeholder="Brand Story"> </textarea>
+      <h3>About Your Brand</h3>
+      <textarea type="text" name="brand-story"  placeholder="Brand Story" class="brand-story" rows="5"> </textarea>
     </div>
 
     <div>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" class="dashboard-submit">
     </div>
   </form>
+
+
+
+  </div> <!--form-wrapper-->
+
 
 </section>
 

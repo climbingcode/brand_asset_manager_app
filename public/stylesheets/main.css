@@ -1,16 +1,139 @@
 
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
 
+*{
+  font-family: 'Proxima-nova';
+}
+
+*:focus {
+    outline: 0;
+}
+
+h1, h2, h3, h4, h5{
+  color: #656668;
+}
+
+/* ==========================================================================
+ NAVIGATION
+   ========================================================================== */
+
+
+.navbar{
+  background-color: #656668;
+}
+
+.logout-button{
+  background-color: #9EB2AB;
+  border: solid 2px #7BFFD9;
+  border-radius: 1px;
+  color: #fff;
+  font-weight: 400;
+}
+.logout-button:hover{
+  background-color: #7BFFD9;
+}
+
+.navbar-brand{
+  color: #7BFFD9;
+}
+.navbar-brand:hover{
+  color: #fff;
+}
 
 
 
+/* ==========================================================================
+  DASHBOARD FORM
+   ========================================================================== */
 
 
+.header-wrapper{
+  background-color: #656668;
+  margin-left: -15px;
+  margin-right: -15px;
+}
 
+.header-wrapper h1{
+  color: white;
+  padding: 15px;
+}
+
+
+.form-wrapper{
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  background: #999;
+}
+
+.form-background{
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-bottom: 45px;
+}
+
+
+select > .alternate-gothic{
+  font-family: "alternate-gothic-no-1-d";
+}
+
+.color-input{
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  background-color: #adadad;
+  border: none;
+}
+
+.mission-statement{
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  background-color: #adadad;
+  border: none;
+   font-size: 1.2em
+}
+
+.brand-story{
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  background-color: #adadad;
+  border: none;
+  font-size: 1.2em
+}
+
+.headline-text-select-wrapper{
+  display: inline;
+  text-align: center;
+
+}
+.body-text-select-wrapper{
+  display: inline;
+  text-align: center;
+}
+
+.headline-text-select-wrapper option{
+  width: 100%;
+}
+.body-text-select-wrapper option{
+  display: inline;
+  text-align: center;
+}
+
+.dashboard-submit{
+    background-color: #9EB2AB;
+  border: solid 2px #7BFFD9;
+  border-radius: 1px;
+  color: #fff;
+  font-weight: 400;
+}
+.dashboard-submit:hover{
+  background-color: #7BFFD9;
+}
 
 
 
