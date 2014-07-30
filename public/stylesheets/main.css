@@ -88,13 +88,22 @@ select > .alternate-gothic{
   border: none;
 }
 
-textarea{
+.mission-statement{
   width: 100%;
   margin: 10px;
   padding: 10px;
   background-color: #adadad;
   border: none;
-  font-size: 2em;
+   font-size: 1.2em
+}
+
+.brand-story{
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  background-color: #adadad;
+  border: none;
+  font-size: 1.2em
 }
 
 .headline-text-select-wrapper{
@@ -115,6 +124,16 @@ textarea{
   text-align: center;
 }
 
+.dashboard-submit{
+    background-color: #9EB2AB;
+  border: solid 2px #7BFFD9;
+  border-radius: 1px;
+  color: #fff;
+  font-weight: 400;
+}
+.dashboard-submit:hover{
+  background-color: #7BFFD9;
+}
 
 
 
