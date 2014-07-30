@@ -29,17 +29,20 @@
     <input type="file" name="upload">
 
   <h2>Colors</h2>
-    <div>
+
+    
+    <div class="col-sm-4">
       <!-- <label>Name:</label> -->
       <input type="text" name="hexcolor1"  placeholder="Name" class="color-input">
     </div>
 
-    <div>
+    <div class="col-sm-4">
       <!-- <label>Name:</label> -->
       <input type="text" name="hexcolor1"  placeholder="Name" class="color-input">
     </div>
 
-    <div>
+    <div class="col-sm-4">
+    <div class="hash">#</div>
       <!-- <label>Name:</label> -->
       <input type="text" name="hexcolor1"  placeholder="Name" class="color-input">
     </div>
@@ -51,21 +54,23 @@
     <div class="headline-text-select-wrapper col-sm-6">
       <h3>Headline</h3>
       <!-- <label>Email:</label> -->
+      <span class="custom-dropdown custom-dropdown--white custom-dropdown--large">
       <div class="styled-select">
-        <select name="headline-type">
+        <select name="headline-type" class="custom-dropdown__select custom-dropdown__select--white">
           <option value="proxima-nova" class="proxima-nova">Proxima Nova</option>
           <option value="alternate-gothic" class="alternate-gothic">Alternate Gothic</option>
           <option value="adelle" class="adelle">Adelle</option>
           <option value="audi" class="proxima-nova">Audi</option>
         </select>
       </div><!--style select-->
+      </span>
       </div>
 
       <div class="body-text-select-wrapper col-sm-6">
 
       <h3>Body</h3>
       <!-- <label>Email:</label> -->
-      <span class="custom-dropdown custom-dropdown--white">
+      <span class="custom-dropdown custom-dropdown--white custom-dropdown--large">
       <div class="styled-select">
         <select name="body-type" class="custom-dropdown__select custom-dropdown__select--white">
           <option value="proxima-nova">Proxima Nova</option>
