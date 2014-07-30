@@ -10,11 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321144528) do
+ActiveRecord::Schema.define(version: 20140730090647) do
+
+  create_table "hexcolors", force: true do |t|
+    t.integer  "user_id"
+    t.string   "description"
+    t.string   "hextriplet"
+    t.boolean  "primary",     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "uploads", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "filetype"
+    t.string   "file_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
-    t.string "name"
-    t.string "email"
+    t.string   "brand"
+    t.string   "email"
+    t.string   "username"
+    t.string   "password_digest"
+    t.string   "website_url"
+    t.string   "mission_statement"
+    t.text     "story"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
