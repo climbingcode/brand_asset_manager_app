@@ -1,0 +1,75 @@
+
+<section class="col-sm-8 col-xs-12">
+
+  <h1>Dashboard</h1>
+
+  <form action="/users" method="post"  enctype="multipart/form-data">
+
+  <h2>Assets</h2>
+    <input type="file" name="upload">
+
+  <h2>Colors</h2>
+    <div>
+      <!-- <label>Name:</label> -->
+      <input type="text" name="hexcolor1"  placeholder="Name">
+    </div>
+
+    <div>
+      <!-- <label>Name:</label> -->
+      <input type="text" name="hexcolor1"  placeholder="Name">
+    </div>
+
+    <div>
+      <!-- <label>Name:</label> -->
+      <input type="text" name="hexcolor1"  placeholder="Name">
+    </div>
+
+  <h2>Typography</h2>
+
+
+      <h3>Headline</h3>
+      <!-- <label>Email:</label> -->
+      <div class="styled-select">
+        <select name="headline-type">
+          <option value="proxima-nova">Proxima Nova</option>
+          <option value="alternate-gothic">Alternate Gothic</option>
+          <option value="adelle">Adelle</option>
+          <option value="audi">Audi</option>
+        </select>
+      </div><!--style select-->
+
+
+      <h3>Body</h3>
+      <!-- <label>Email:</label> -->
+      <div class="styled-select">
+        <select name="body-type">
+          <option value="proxima-nova">Proxima Nova</option>
+          <option value="alternate-gothic">Alternate Gothic</option>
+          <option value="adelle">Adelle</option>
+          <option value="audi">Audi</option>
+        </select>
+      </div><!--styled select-->
+
+
+
+  <h2>Brand Story</h2>
+
+
+      <h3>Mission Statement</h3>
+      <!-- <label>Mission Statement</label> -->
+      <input type="text" name="mission-statement"  placeholder="Mission Statement">
+
+
+    <div>
+      <!-- <label>Brand Story</label> -->
+      <textarea type="text" name="brand-story"  placeholder="Brand Story"> </textarea>
+    </div>
+
+    <div>
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+
+</section>
+
+
