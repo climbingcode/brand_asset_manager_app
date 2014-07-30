@@ -26,10 +26,7 @@ post '/signin' do
 	end
 end
 
-
-
-
-post '/dashboard/:id' do
+post '/account/:id' do
 
 	redirect "/#{params[:id]}"
 end
