@@ -1,6 +1,25 @@
 <h1>Home Page</h1>
 
-<div style="width: 300px; height: 300px; background-color: #dadada; background-color: <%= hexcolor =%>;"
+<!-- login form  -->
+
+<form action='/signin' method='post'>
+    <div>
+      <label>Username</label>
+      <input type="text" name="username" placeholder="Username" >
+    </div>
+
+    <div>
+      <label>Password</label>
+      <input type="text" name="password"  placeholder="Password">
+    </div>
+
+    <div>
+     <button type="submit">Sign in</button>
+    </div>
+</form>
+
+
+<div style="width: 300px; height: 300px; background-color: #dadada; background-color: <%= @hexcolor %>;">
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
@@ -12,6 +31,11 @@
 <script src="javascript/main.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+
+
+
+
+
 <script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
     function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -19,4 +43,10 @@
     e.src='//www.google-analytics.com/analytics.js';
     r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
     ga('create','UA-XXXXX-X');ga('send','pageview');
+
 </script>
+
+
+
+
+

@@ -1,4 +1,4 @@
-# A sample Gemfile
+# A sample Gemfilet
 source "https://rubygems.org"
 
 gem 'rake'
