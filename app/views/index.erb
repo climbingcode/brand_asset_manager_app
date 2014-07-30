@@ -2,7 +2,7 @@
 
 <!-- login form  -->
 
-<form action='/signin' method='post'>
+<form action='/dashboard' method='post'>
     <div>
       <label>Username</label>
       <input type="text" name="username" placeholder="Username" >
@@ -19,8 +19,11 @@
 </form>
 
 
-<div style="width: 300px; height: 300px; background-color: #dadada; background-color: <%= @hexcolor %>;">
-
+<% if @session != nil%>
+  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: <%= @hexcolor.first %>;">
+<% else %>
+  <div style="width: 300px; height: 300px; background-color: #dadada;">
+<% end%>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.js"><\/script>')</script>
@@ -35,7 +38,6 @@
 
 
 
-
 <script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
     function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -43,10 +45,6 @@
     e.src='//www.google-analytics.com/analytics.js';
     r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
     ga('create','UA-XXXXX-X');ga('send','pageview');
-
 </script>
-
-
-
 
 
