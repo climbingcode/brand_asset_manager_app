@@ -26,7 +26,9 @@
     </div>
 
 
-
+<% if @user != nil %>  
+ <a href="/account/<%=@user.id%>">Click here to go to the dashboard</a>
+<% end %>
 <!-- Sign In Form -->
 
 <!-- Button trigger modal -->
@@ -52,7 +54,7 @@
 
           <div>
             <label>Email</label>
-            <input type="text" name="Email" placeholder="Email" >
+            <input type="text" name="email" placeholder="Email" >
           </div>
 
           <div>
@@ -84,8 +86,13 @@
 
 
 
-<% if @session != nil%>
-  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: <%= @hexcolor.first %>;"></div>
+<% if @user != nil %>
+
+  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: #<%= @hexcolor.first %>;"></div>
+
+  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: #<%= @hexcolor[1] %>;"></div>
+
+  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: #<%= @hexcolor[2] %>;"></div>
 <% else %>
   <div style="width: 300px; height: 300px; background-color: #dadada;"></div>
 <% end%>
