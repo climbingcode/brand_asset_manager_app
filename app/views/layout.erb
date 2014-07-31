@@ -19,7 +19,7 @@
         </style>
         <!--BOOTSTRAP-->
         <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="/stylesheets/bootstrap-colorpicker.css" />
+        <link rel="stylesheet" href="/stylesheets/pick-a-color-1.2.3.min.css">
         <link rel="stylesheet" href="/stylesheets/main.css">
 
 
@@ -40,26 +40,16 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.js"><\/script>')</script>
-<script src="/javascript/bootstrap-colorpicker.js"></script>
-<script src="/javascript/bootstrap-colorpicker.min.js"></script>
+<script src="/javascript/tinycolor-0.9.15.min.js"></script>
+<script src="/javascript/pick-a-color-1.2.3.min.js"></script>
 <script src="/javascript/vendor/bootstrap.min.js"></script>
 <script src="/javascript/plugins.js"></script>
 <script src="/javascript/main.js"></script>
 
 <script type="text/javascript">
-  
-  //COLOR PICKER
-
-
-    $('#colorPicker')
-        .colorpicker()
-        .on('showPicker changeColor', function(e) {
-            // Revalidate the color when user choose a color from the color picker
-            $('#colorPickerForm').bootstrapValidator('revalidateField', 'color');
-        });
-});
-
-//END COLOR PICKER
+    $(".pick-a-color").pickAColor();
 </script>
+
+
 </body>
 </html>
