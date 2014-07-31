@@ -13,7 +13,11 @@ end
 
 
 get '/account/:id' do
-	erb :'account/index'
+	if session[:id] && params[:id].to_i == session[:id]
+		erb :'account/index'
+	else
+		redirect "/"
+	end
 end
 
 post '/logout' do
@@ -92,38 +96,76 @@ post '/account/:id' do
 		account_id: params[:id]
 		)
 
+	@type = Font.new(
+		body: params[:bodytype],
+		headline: params[:headlinetype],
+		account_id: params[:id]
+		)
+	@type.save
+
 	if (@hexcolor1.save || @hexcolor1.hextriplet == nil) && (@hexcolor2.save || @hexcolor2.hextriplet == nil) && (@hexcolor3.save || @hexcolor3.hextriplet == nil)
 		redirect "/#{Account.find(params[:id]).brand}"
 	else
 		raise "these did not save"
 	end
+
+
+
+
+
+
+
+
 end
 
 
+
 get '/:name' do
-	@session = session[:id]
-
-
-	if @session != nil
+	@user = Account.find_by(brand: params[:name])
+	@session = (session[:id] = @user.id)
 		
-		@user = Account.find(@session)
+ # FIRST THREE PHOTO VARIABLES 
+	if @session != nil
 
 		if @user.uploads[0].file != nil 
-			@photo1 = @user.uploads[0].file
+			@logo1 = @user.uploads[0].file
 		end
 		if @user.uploads[1].file != nil 
-			@photo2 = @user.uploads[1].file
+			@logo2 = @user.uploads[1].file
 		end
 		if @user.uploads[2].file != nil 
-			@photo3 = @user.uploads[2].file
+			@logo3 = @user.uploads[2].file
 		end	
+
+
+	# FIRST THREE HEXCOLORS VARIABLES 
+		if @user.hexcolors[0] != nil 
+			@hexcolor1 = @user.hexcolors[0].hextriplet
+		end
+		if @user.hexcolors[1] != nil 
+			@hexcolor2 = @user.hexcolors[1].hextriplet
+		end
+		if @user.hexcolors[2] != nil 
+			@hexcolor3 = @user.hexcolors[2].hextriplet
+		end	
+
+# FONTS 
+		if @user.fonts[0].body != nil
+			@body = @user.fonts[0].body
+		end
+
+		if @user.fonts[0].headline != nil
+			@headline = @user.fonts[0].headline
+		end
+
 	end
 
-	if @user.hexcolors != []
-		hex = @user.hexcolors.where(account_id: @user.id)
-		@hexcolor = hex.pluck(:hextriplet)
-	end
-  erb :index
+	erb :index
+	# if @session != nil
+	# 	hex = @user.hexcolors.where(account_id: @user.id)
+	# 	@hexcolor = hex.pluck(:hextriplet)
+	# end
+  
 end
 
 

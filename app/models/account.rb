@@ -4,5 +4,6 @@ class Account < ActiveRecord::Base
 
 	has_many :uploads 
 	has_many :hexcolors
+  has_many :fonts
 
 end
