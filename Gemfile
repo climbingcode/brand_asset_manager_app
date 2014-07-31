@@ -13,6 +13,7 @@ gem 'tux'
 gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
 
+
 group :development, :test do
   gem 'pry'
   gem 'shotgun'

@@ -36,7 +36,8 @@ post '/signup' do
 		brand: params[:brand],
 		email: params[:email],
 		username: params[:username],
-		password: params[:password]
+		password: params[:password],
+		website_url: params[:website]
 	) 
 		if @account.save 
 			session[:id] = @account.id
