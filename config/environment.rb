@@ -6,8 +6,11 @@ require 'active_support/all'
 # Load Sinatra Framework (with AR)
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
 
 require 'pry'
+
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
@@ -28,3 +31,10 @@ require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
 require APP_ROOT.join('app', 'actions')
+
+#configure carrierwave 
+CarrierWave.configure do |config|
+	config.storage = :file
+	config.root = File.join(APP_ROOT, 'public')
+	config.store_dir = File.join('uploads')
+end 

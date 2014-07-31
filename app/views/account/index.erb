@@ -10,8 +10,8 @@
           <a class="navbar-brand" href="#">BrandCamp</a>
         </div>
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
-              <input type="submit" placeholder="Logout" class="form-control logout-button" value="Logout">
+          <form class="navbar-form navbar-right" role="form" type="submit" name='/logout'>
+              <input  method='post' placeholder="Logout" class="form-control logout-button" value="Logout">
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -21,15 +21,14 @@
     <h1>Dashboard</h1>
   </div>
   <div class="form-background">
-
  
   <form action="/account/<%=params[:id].to_i%>" method="post"  enctype="multipart/form-data">
 
   
   <h2>Assets</h2>
     <input type="file" name="upload1" class="upload-button">
-    <input type="file" name="upload1" class="upload-button">
-    <input type="file" name="upload1" class="upload-button">
+    <input type="file" name="upload2" class="upload-button">
+    <input type="file" name="upload3" class="upload-button">
 
   <h2>Colors</h2>
 
