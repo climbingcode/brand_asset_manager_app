@@ -273,12 +273,14 @@ select > .alternate-gothic{
 .upload-button:active::before {
   /*background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }*/
-
+}
 
 
 .hex-color-text{
   color: #fff;
-  font-size: 2em;
+  margin-top: 20px;
+  font-size: 4em;
+  opacity: 0.5;
   text-align: center;
 }
 

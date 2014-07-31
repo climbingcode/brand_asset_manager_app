@@ -1,4 +1,9 @@
 # Homepage (Root path)
+require_relative '../app/helpers/application_helpers.rb'
+
+helpers do 
+
+end
 
 get '/' do
 	@user = nil
@@ -44,18 +49,32 @@ end
 
 post '/account/:id' do
 
-	@brand1 = Account.find(params[:id])
-	@uploaded_file = @brand1.uploads.create :file => params[:upload1]
-	@brand1.save!
+	@brand = Account.find(params[:id])
 
-	@brand2 = Account.find(params[:id])
-	@uploaded_file = @brand2.uploads.create :file => params[:upload2]
-	@brand2.save!
+	@uploaded_file1 = @brand.uploads.create :file => params[:upload1]
+	
+	@uploaded_file2 = @brand.uploads.create :file => params[:upload2]
+	
+	@uploaded_file3 = @brand.uploads.create :file => params[:upload3]
+	
 
-	@brand3 = Account.find(params[:id])
-	@uploaded_file = @brand3.uploads.create :file => params[:upload3]
-	@brand3.save!
+	if @uploaded_file1.check_if_uploaded? && @uploaded_file1.save  
+		true 
+	else 
+		"these did not save"
+	end
 
+	if @uploaded_file1.check_if_uploaded? && @uploaded_file2.save  
+		true 
+	else 
+		"these did not save"
+	end
+
+	if @uploaded_file1.check_if_uploaded? && @uploaded_file3.save  
+		true 
+	else 
+		"these did not save"
+	end
 	# @file1 = File.open(File.join(APP_ROOT, '/uploads', params['upload1'][:filename]), "w") do |f|
 	# 	f.write(params['upload1'][:tempfile].read)
 	# end
@@ -84,9 +103,20 @@ end
 get '/:name' do
 	@session = session[:id]
 
+
 	if @session != nil
+		
 		@user = Account.find(@session)
-		@photo = @user.uploads
+
+		if @user.uploads[0].file != nil 
+			@photo1 = @user.uploads[0].file
+		end
+		if @user.uploads[1].file != nil 
+			@photo2 = @user.uploads[1].file
+		end
+		if @user.uploads[2].file != nil 
+			@photo3 = @user.uploads[2].file
+		end	
 	end
 
 	if @user.hexcolors != []
