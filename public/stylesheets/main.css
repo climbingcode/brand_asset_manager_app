@@ -43,6 +43,10 @@ h1, h2, h3, h4, h5{
   color: #fff;
 }
 
+.sign-in-button{
+  display: inline;
+}
+
 
 
 /* ==========================================================================
@@ -67,6 +71,7 @@ h1, h2, h3, h4, h5{
   margin-right: auto;
   float: none;
   background: #999;
+  margin-top: 60px;
 }
 
 .form-background{
@@ -81,11 +86,14 @@ select > .alternate-gothic{
 }
 
 .color-input{
-  width: 100%;
+  width: 75%;
   margin: 10px;
   padding: 10px;
+  height: 45px;
+  margin-left: 45px;
   background-color: #adadad;
   border: none;
+  font-size: 2em;
 }
 
 .mission-statement{
@@ -137,7 +145,15 @@ select > .alternate-gothic{
 
 .hash{
   position: absolute;
-  background-color: #7BFFD9;
+  background-color: #444;
+  height: 45px;
+  width: 45px;
+  margin-top: 10px;
+  color: #fff;
+  font-size: 2em;
+  font-weight: 400;
+  padding-left: 15px;
+  padding-top: 5px;
 }
 
 
