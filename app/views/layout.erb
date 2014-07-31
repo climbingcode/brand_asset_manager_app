@@ -19,7 +19,10 @@
         </style>
         <!--BOOTSTRAP-->
         <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/stylesheets/bootstrap-colorpicker.css" />
         <link rel="stylesheet" href="/stylesheets/main.css">
+
+
         <!--TYPEKIT-->
         <script type="text/javascript" src="//use.typekit.net/chy0lpf.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -27,9 +30,36 @@
         <script src="/javascript/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="/javascript/ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="/javascript/ZeroClipboard.js"></script>
+
     </head>
 
 <body>
   <%= yield %>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.js"><\/script>')</script>
+<script src="/javascript/bootstrap-colorpicker.js"></script>
+<script src="/javascript/bootstrap-colorpicker.min.js"></script>
+<script src="/javascript/vendor/bootstrap.min.js"></script>
+<script src="/javascript/plugins.js"></script>
+<script src="/javascript/main.js"></script>
+
+<script type="text/javascript">
+  
+  //COLOR PICKER
+
+
+    $('#colorPicker')
+        .colorpicker()
+        .on('showPicker changeColor', function(e) {
+            // Revalidate the color when user choose a color from the color picker
+            $('#colorPickerForm').bootstrapValidator('revalidateField', 'color');
+        });
+});
+
+//END COLOR PICKER
+</script>
 </body>
 </html>
