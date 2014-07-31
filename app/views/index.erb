@@ -4,7 +4,7 @@
 <!-- login form  -->
 
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-fixed-top" role="navigation" style=" background-color: <%= @hexcolor.first %>">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Project name</a>
@@ -26,6 +26,47 @@
     </div>
 
 
+
+
+
+<div class="row">
+
+  <div class="col-sm-4">
+    <% if @session != nil%>
+    <div class="swatch" style="width: 100%; height: 100px; background-color: #dadada; background-color: <%= @hexcolor.first %>;">
+        <p class="hex-color-text"><%= @hexcolor.first %></p>
+      </div>
+    <% else %>
+      <div style="width: 300px; height: 300px; background-color: #dadada;"></div>
+    <% end%>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <% if @session != nil%>
+    <div class="swatch" style="width: 100%; height: 100px; background-color: #dadada; background-color: <%= @hexcolor.first %>;">
+        <p class="hex-color-text"><%= @hexcolor.first %></p>
+      </div>
+    <% else %>
+      <div style="width: 300px; height: 300px; background-color: #dadada;"></div>
+    <% end%>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <% if @session != nil%>
+    <div class="swatch" style="width: 100%; height: 100px; background-color: #dadada; background-color: <%= @hexcolor.first %>;">
+        <p class="hex-color-text"><%= @hexcolor.first %></p>
+      </div>
+    <% else %>
+      <div style="width: 300px; height: 300px; background-color: #dadada;"></div>
+    <% end%>
+    </div>
+  </div>
+
+</div><!--row-->
+
+    <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
 
 <!-- Sign In Form -->
 
@@ -79,17 +120,6 @@
 </div>
 
 
-
-
-
-
-
-<% if @session != nil%>
-  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: <%= @hexcolor.first %>;"></div>
-<% else %>
-  <div style="width: 300px; height: 300px; background-color: #dadada;"></div>
-<% end%>
-</div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.js"><\/script>')</script>
 
@@ -104,12 +134,18 @@
 
 
 <script>
-    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-    e.src='//www.google-analytics.com/analytics.js';
-    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create','UA-XXXXX-X');ga('send','pageview');
+var client = new ZeroClipboard( document.getElementById("copy-button") );
+
+client.on( "ready", function( readyEvent ) {
+  // alert( "ZeroClipboard SWF is ready!" );
+
+  client.on( "aftercopy", function( event ) {
+    // `this` === `client`
+    // `event.target` === the element that was clicked
+    event.target.style.display = "none";
+    alert("Copied text to clipboard: " + event.data["text/plain"] );
+  } );
+} );
 </script>
 
 

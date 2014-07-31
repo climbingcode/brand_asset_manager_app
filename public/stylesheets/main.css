@@ -72,6 +72,7 @@ h1, h2, h3, h4, h5{
   float: none;
   background: #999;
   margin-top: 60px;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 .form-background{
@@ -93,7 +94,8 @@ select > .alternate-gothic{
   margin-left: 45px;
   background-color: #adadad;
   border: none;
-  font-size: 2em;
+  font-size: 2.2em;
+  font-family: "motor";
 }
 
 .mission-statement{
@@ -248,8 +250,41 @@ select > .alternate-gothic{
     }
 }
 
+.upload-button::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.upload-button::before {
+  color: #fff;
+  content: 'Upload';
+  display: inline-block;
+  background-color: #9EB2AB;
+  border: solid 2px #7BFFD9;
+  border-radius: 1px;
+  padding: 5px 8px;
+  margin-bottom: 15px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+
+  font-weight: 400;
+  font-size: 10pt;
+}
+
+.upload-button:active::before {
+  /*background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}*/
 
 
 
+.hex-color-text{
+  color: #fff;
+  font-size: 2em;
+  text-align: center;
+}
+
+.swatch{
+  padding: 30px;
+}
 
 

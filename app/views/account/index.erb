@@ -26,24 +26,28 @@
   <form action="/account/<%= params[:id] %>" method="post"  enctype="multipart/form-data">
 
   <h2>Assets</h2>
-    <input type="file" name="upload">
+    <input type="file" name="upload1" class="upload-button">
+    <input type="file" name="upload1" class="upload-button">
+    <input type="file" name="upload1" class="upload-button">
 
   <h2>Colors</h2>
 
     
     <div class="col-sm-4">
-      <!-- <label>Name:</label> -->
+      <label>Primary:</label>
       <div class="hash">#</div>
+
       <input type="text" name="hexcolor1"  class="color-input" maxlength="6">
     </div>
 
     <div class="col-sm-4">
-      <!-- <label>Name:</label> -->
+      <label>Secondary:</label>
       <div class="hash">#</div>
       <input type="text" name="hexcolor2"  class="color-input" maxlength="6">
     </div>
 
     <div class="col-sm-4">
+    <label>Accent:</label>
     <div class="hash">#</div>
       <!-- <label>Name:</label> -->
       <input type="text" name="hexcolor2"  class="color-input" maxlength="6">
