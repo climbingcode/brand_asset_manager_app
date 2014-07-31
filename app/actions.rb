@@ -2,6 +2,7 @@
 
 get '/' do
 	@user = nil
+	@photo = nil
 	erb :index
 end
 
@@ -43,23 +44,33 @@ end
 
 post '/account/:id' do
 
-	@brand = Account.find(params[:id])
+	@brand1 = Account.find(params[:id])
+	@uploaded_file = @brand1.uploads.create :file => params[:upload1]
+	@brand1.save!
 
-	@file1 = File.open(File.join(APP_ROOT, 'uploads' + params['upload1'][:filename]), "w") do |f|
-		f.write(params['upload1'][:tempfile].read)
-	end
+	@brand2 = Account.find(params[:id])
+	@uploaded_file = @brand2.uploads.create :file => params[:upload2]
+	@brand2.save!
+
+	@brand3 = Account.find(params[:id])
+	@uploaded_file = @brand3.uploads.create :file => params[:upload3]
+	@brand3.save!
+
+	# @file1 = File.open(File.join(APP_ROOT, '/uploads', params['upload1'][:filename]), "w") do |f|
+	# 	f.write(params['upload1'][:tempfile].read)
+	# end
 	
 	@hexcolor1 = Hexcolor.new(
 		hextriplet: params[:hexcolor1],
-		account_id: @brand.id,
+		account_id: params[:id]
 		)
 	@hexcolor2 = Hexcolor.new(
 		hextriplet: params[:hexcolor2],
-		account_id: @brand.id
+		account_id: params[:id]
 		)
 	@hexcolor3 = Hexcolor.new(
 		hextriplet: params[:hexcolor3],
-		account_id: @brand.id
+		account_id: params[:id]
 		)
 
 	if (@hexcolor1.save || @hexcolor1.hextriplet == nil) && (@hexcolor2.save || @hexcolor2.hextriplet == nil) && (@hexcolor3.save || @hexcolor3.hextriplet == nil)
@@ -72,7 +83,12 @@ end
 
 get '/:name' do
 	@session = session[:id]
-	@user = Account.find(@session)
+
+	if @session != nil
+		@user = Account.find(@session)
+		@photo = @user.uploads
+	end
+
 	if @user.hexcolors != []
 		hex = @user.hexcolors.where(account_id: @user.id)
 		@hexcolor = hex.pluck(:hextriplet)
