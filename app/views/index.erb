@@ -25,48 +25,9 @@
       </div>
     </div>
 
-
-
-
-
-<div class="row">
-
-  <div class="col-sm-4">
-    <% if @session != nil%>
-    <div class="swatch" style="width: 100%; height: 100px; background-color: #dadada; background-color: <%= @hexcolor.first %>;">
-        <p class="hex-color-text"><%= @hexcolor.first %></p>
-      </div>
-    <% else %>
-      <div style="width: 300px; height: 300px; background-color: #dadada;"></div>
-    <% end%>
-    </div>
-  </div>
-
-  <div class="col-sm-4">
-    <% if @session != nil%>
-    <div class="swatch" style="width: 100%; height: 100px; background-color: #dadada; background-color: <%= @hexcolor.first %>;">
-        <p class="hex-color-text"><%= @hexcolor.first %></p>
-      </div>
-    <% else %>
-      <div style="width: 300px; height: 300px; background-color: #dadada;"></div>
-    <% end%>
-    </div>
-  </div>
-
-  <div class="col-sm-4">
-    <% if @session != nil%>
-    <div class="swatch" style="width: 100%; height: 100px; background-color: #dadada; background-color: <%= @hexcolor.first %>;">
-        <p class="hex-color-text"><%= @hexcolor.first %></p>
-      </div>
-    <% else %>
-      <div style="width: 300px; height: 300px; background-color: #dadada;"></div>
-    <% end%>
-    </div>
-  </div>
-
-</div><!--row-->
-
-    <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
+<% if @user != nil %>  
+ <a href="/account/<%=@user.id%>">Click here to go to the dashboard</a>
+<% end %>
 
 <!-- Sign In Form -->
 
@@ -93,7 +54,7 @@
 
           <div>
             <label>Email</label>
-            <input type="text" name="Email" placeholder="Email" >
+            <input type="text" name="email" placeholder="Email" >
           </div>
 
           <div>
@@ -119,6 +80,25 @@
   </div>
 </div>
 
+
+<<<<<<< HEAD
+=======
+
+
+
+
+
+<% if @user != nil %>
+
+  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: #<%= @hexcolor.first %>;"></div>
+
+  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: #<%= @hexcolor[1] %>;"></div>
+
+  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: #<%= @hexcolor[2] %>;"></div>
+<% else %>
+  <div style="width: 300px; height: 300px; background-color: #dadada;"></div>
+<% end%>
+</div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.js"><\/script>')</script>
