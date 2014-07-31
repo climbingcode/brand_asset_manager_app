@@ -2,6 +2,7 @@
 
 get '/' do
 	@user = nil
+	@photo = nil
 	erb :index
 end
 
@@ -44,8 +45,12 @@ end
 post '/account/:id' do
 
 	@brand = Account.find(params[:id])
+	@uploaded_file = @brand.uploads.create :file => params[:upload1]
+	@brand.save!
 
-	@file1 = File.open(File.join(APP_ROOT, 'uploads' + params['upload1'][:filename]), "w") do |f|
+	"<pre>#{@uploaded_file.to_s}</pre>"
+
+	@file1 = File.open(File.join(APP_ROOT, '/uploads', params['upload1'][:filename]), "w") do |f|
 		f.write(params['upload1'][:tempfile].read)
 	end
 	
@@ -72,7 +77,12 @@ end
 
 get '/:name' do
 	@session = session[:id]
-	@user = Account.find(@session)
+
+	if @session != nil
+		@user = Account.find(@session)
+		@photo = @user.uploads
+	end
+
 	if @user.hexcolors != []
 		hex = @user.hexcolors.where(account_id: @user.id)
 		@hexcolor = hex.pluck(:hextriplet)
