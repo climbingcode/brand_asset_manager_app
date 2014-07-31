@@ -10,6 +10,11 @@ get '/account/:id' do
 	erb :'account/index'
 end
 
+post '/logout' do
+	session.clear
+	redirect '/'
+end
+
 post '/signin' do
 	@account = Account.where(username: params[:username] ).where(password: params[:password] )
 	if @account[0] != nil
@@ -37,12 +42,16 @@ end
 
 
 post '/account/:id' do
+
 	@brand = Account.find(params[:id])
 
+	@file1 = File.open(File.join(APP_ROOT, 'uploads' + params['upload1'][:filename]), "w") do |f|
+		f.write(params['upload1'][:tempfile].read)
+	end
+	
 	@hexcolor1 = Hexcolor.new(
 		hextriplet: params[:hexcolor1],
 		account_id: @brand.id,
-		primary: true
 		)
 	@hexcolor2 = Hexcolor.new(
 		hextriplet: params[:hexcolor2],
@@ -53,13 +62,12 @@ post '/account/:id' do
 		account_id: @brand.id
 		)
 
-	if @hexcolor1.save && @hexcolor2.save && @hexcolor3.save
+	if (@hexcolor1.save || @hexcolor1.hextriplet == nil) && (@hexcolor2.save || @hexcolor2.hextriplet == nil) && (@hexcolor3.save || @hexcolor3.hextriplet == nil)
 		redirect "/#{Account.find(params[:id]).brand}"
 	else
 		raise "these did not save"
 	end
 end
-
 
 
 get '/:name' do
