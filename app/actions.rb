@@ -41,7 +41,8 @@ post '/account/:id' do
 
 	@hexcolor1 = Hexcolor.new(
 		hextriplet: params[:hexcolor1],
-		account_id: @brand.id
+		account_id: @brand.id,
+		primary: true
 		)
 	@hexcolor2 = Hexcolor.new(
 		hextriplet: params[:hexcolor2],
@@ -51,7 +52,7 @@ post '/account/:id' do
 		hextriplet: params[:hexcolor3],
 		account_id: @brand.id
 		)
- binding.pry
+
 	if @hexcolor1.save && @hexcolor2.save && @hexcolor3.save
 		redirect "/#{Account.find(params[:id]).brand}"
 	else

@@ -3,8 +3,11 @@
 
 <!-- login form  -->
 
-
-    <div class="navbar navbar-fixed-top" role="navigation" style=" background-color: <%= @hexcolor.first %>">
+  <%if @hexcolor != nil %>  
+    <div class="navbar navbar-fixed-top" role="navigation" style=" background-color:<%= @hexcolor.first %>">
+  <%else %>
+     <div class="navbar navbar-fixed-top" role="navigation">
+  <% end %>
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Project name</a>
@@ -81,8 +84,6 @@
 </div>
 
 
-<<<<<<< HEAD
-=======
 
 
 
@@ -90,11 +91,11 @@
 
 <% if @user != nil %>
 
-  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: #<%= @hexcolor.first %>;"></div>
+  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: <%= @hexcolor.first %>;"></div>
 
-  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: #<%= @hexcolor[1] %>;"></div>
+  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: <%= @hexcolor[1] %>;"></div>
 
-  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: #<%= @hexcolor[2] %>;"></div>
+  <div style="width: 300px; height: 300px; background-color: #dadada; background-color: <%= @hexcolor[2] %>;"></div>
 <% else %>
   <div style="width: 300px; height: 300px; background-color: #dadada;"></div>
 <% end%>
