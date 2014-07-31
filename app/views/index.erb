@@ -2,8 +2,8 @@
 
 <!-- login form  -->
 
-  <%if @hexcolor != nil %>  
-    <div class="navbar navbar-fixed-top" role="navigation" style=" background-color:#<%= @hexcolor.first %>">
+  <%if @hexcolor1 != nil %>  
+    <div class="navbar navbar-fixed-top" role="navigation" style=" background-color:#<%= @hexcolor1 %>">
   <%else %>
      <div class="navbar navbar-fixed-top" role="navigation">
   <% end %>
@@ -97,20 +97,21 @@
 <section class="logo-row row">
 <% if @session != nil%>
 <div class="col-sm-4">
-  <%  if @user.uploads.pluck(0)[1] != nil  %>
-    <img src="<%= @photo2.url %>" class="img-responsive"/>
+  <%  if @logo1.url != nil  %>
+
+    <img src="<%= @logo2.url %>" class="img-responsive"/>
   <% end %>
 </div>
 
 <div class="col-sm-4">
-  <% if @user.uploads.pluck(0).first != nil %>
-    <img src="<%= @photo1.url %>" class="img-responsive"/>
+  <% if @logo2.url != nil %>
+    <img src="<%= @logo1.url %>" class="img-responsive"/>
   <% end %>
 </div>
 
 <div class="col-sm-4">
-  <%  if @user.uploads.pluck(0)[2]  %>
-    <img src="<%= @photo3.url %>" class="img-responsive"/>
+  <%  if @logo3.url  %>
+    <img src="<%= @logo3.url %>" class="img-responsive"/>
   <% end %>
 </div>
 <% end %>
@@ -119,25 +120,54 @@
 
 </section>
 
+
+
 <div class="row">
 <% if @user != nil %>
 
-  <div  class="col-sm-4" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor.first %>;">
-  <h2 class="hex-color-text">#<%= @hexcolor.first %></h2>
+  <div  class="col-sm-4" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor1 %>;">
+  <h2 class="hex-color-text">#<%= @hexcolor1 %></h2>
   </div>
 
-  <div class="col-sm-4" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor[1] %>;">
-  <h2 class="hex-color-text">#<%= @hexcolor[1] %></h2>
+  <div class="col-sm-4" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor2 %>;">
+  <h2 class="hex-color-text">#<%= @hexcolor2 %></h2>
   </div>
 
-  <div  class="col-sm-4" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor[2] %>;">
-  <h2 class="hex-color-text">#<%= @hexcolor[2] %></h2> 
+  <div  class="col-sm-4" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor3 %>;">
+  <h2 class="hex-color-text">#<%= @hexcolor3 %></h2> 
   </div>
 <% else %>
   <div  class="col-sm-4" style=" height: 100px; background-color: #dadada;"></div>
 <% end%>
 </div>
+
+  <section class="row typography">
+  <h1>Typography</h1>
+  <% if @hexcolor3 != nil %>
+    <div class="col-sm-6 headline-box" style="background-color: #<%= @hexcolor3 %>;">
+    <h2>Headline</h2>
+  <% end %>
+
+  <h3 style="font-family:'<%= @body %>';"> <%= @body %></h3>
+  </div>
+
+  <% if @hexcolor1 != nil %>
+  <div class="col-sm-6 body-box" style="background-color: #<%= @hexcolor1 %>;">
+  <% end %>
+
+  <h2>Body</h2>
+  <p style="font-family:'<%= @body %>';" class="body-text"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p>
+
+  <h3 style="font-family:'<%= @body %>';"> <%= @body %></h3>
+
+  </div>
+
+  </section>
+
+
 </div>
+
+
 
 
 <!-- Photo uploader  -->
