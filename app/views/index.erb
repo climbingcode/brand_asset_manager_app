@@ -6,144 +6,151 @@
 <%else %>
    <div class="navbar navbar-fixed-top" role="navigation">
 <% end %>
-    <div class="container">
+
+  <div class="container">
+
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
         <% if @session != nil %>
-          <%=Account.find(@session).brand.upcase%>
+          <%=Account.find(@user).brand.upcase%>
         <% else %>
           BAM
         <% end %>
         </a>
       </div>
+    <%if @session == false || @session == nil %>
         <div class="navbar-collapse collapse">
           <form action='/signin' method='post' class="navbar-form navbar-right" role="form">
-              <div class="form-group">
-                <input type="text" name="username" placeholder="Username" class="form-control">
-              </div>
-              <div class="form-group">
-                <input type="password" name="password"  placeholder="Password" class="form-control">
-              </div>
-
-                <button type="submit" class="sign-in-button btn btn-success">Sign in</button>
+          <div class="form-group">
+            <input type="text" name="username" placeholder="Username" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="password" name="password"  placeholder="Password" class="form-control">
+          </div>
+            <button type="submit" class="sign-in-button btn btn-success">Sign in</button>
           </form>
-          </form>   
-            </form>
-      </div>
-      <%if @session != nil%>
+        </div>
+    <% elsif @session == true %>  
+      <a href="/account/<%=@user.id%>">Click here to go to the dashboard</a>
+    <% end %>
+      <%if @session == true %>
         <form class="log_out"  action="/logout" method="post">
-        <button class="btn btn-danger">Logout</button>
+          <button class="btn btn-danger">Logout</button>
+        </form>
       <% end %>
-      </form><!--/.navbar-collapse -->
-    </div>
-  </div>
+      <!--/.navbar-collapse -->
+   </div>
+   </div>
 
 <div class="container page">
-<img src="img/full_slide.png" class="img-responsive">
 
+  <%if @session == nil %>
+    <img src="img/full_slide.png" class="img-responsive">
+  <% end %>
 
-<% if @user != nil %>  
-<a href="/account/<%=@user.id%>">Click here to go to the dashboard</a>
-<% end %>
-
+  
 <!-- Sign In Form -->
 
 <!-- Button trigger modal -->
-<div class="call-to-action">
-<button class="btn sign-up-btn" data-toggle="modal" data-target="#myModal">
-Sign Up
-</button>
-</div>
+  <% if @session == false %>
+    <div class="call-to-action">
+    <button class="btn sign-up-btn" data-toggle="modal" data-target="#myModal">
+    Sign Up
+    </button>
+    </div>
+  <% end %>
+ 
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-    </div>
-    <div class="modal-body">
-      <form action='/signup' method='post'>
-        
-        <div>
-          <label>Brand</label>
-          <input type="text" name="brand" placeholder="Brand" >
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div><!--modal-header-->
 
-        <div>
-          <label>Email</label>
-          <input type="text" name="email" placeholder="Email" >
-        </div>
+        <div class="modal-body">
+          <form action='/signup' method='post'>
+            <div>
+              <label>Brand</label>
+              <input type="text" name="brand" placeholder="Brand" >
+            </div>
 
-        <div>
-          <label>Username</label>
-          <input type="text" name="username"  placeholder="Username">
-        </div>
+            <div>
+              <label>Email</label>
+              <input type="text" name="email" placeholder="Email" >
+            </div>
 
-        <div>
-          <label>Emai</label>
-          <input type="text" name="password"  placeholder="Password">
-        </div>
+            <div>
+              <label>Username</label>
+              <input type="text" name="username"  placeholder="Username">
+            </div>
 
-        <div>
-         <button type="submit">Register</button>
+            <div>
+              <label>Emai</label>
+              <input type="text" name="password"  placeholder="Password">
+            </div>
+
+            <div>
+             <button type="submit">Register</button>
+            </div>
+
+            </form>
+
+          </div><!--modalbody-->
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div><!--modal-footer-->
         </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Save changes</button>
-    </div>
   </div>
 </div>
-</div>
+
 
 <section class="logo-row row">
-<% if @session != nil%>
-<div class="col-sm-4">
-<%  if @logo1.url != nil  %>
+  <% if @session != nil%>
+  <div class="col-sm-4">
+  <%  if @logo1.url != nil  %>
 
-  <img src="<%= @logo2.url %>" class="img-responsive"/>
-<% end %>
-</div>
+    <img src="<%= @logo2.url %>" class="img-responsive"/>
+  <% end %>
+  </div>
 
-<div class="col-sm-4">
-<% if @logo2.url != nil %>
-  <img src="<%= @logo1.url %>" class="img-responsive"/>
-<% end %>
-</div>
+  <div class="col-sm-4">
+  <% if @logo2.url != nil %>
+    <img src="<%= @logo1.url %>" class="img-responsive"/>
+  <% end %>
+  </div>
 
-<div class="col-sm-4">
-<%  if @logo3.url  %>
-  <img src="<%= @logo3.url %>" class="img-responsive"/>
-<% end %>
-</div>
-<% end %>
-
-
-
+  <div class="col-sm-4">
+  <%  if @logo3.url  %>
+    <img src="<%= @logo3.url %>" class="img-responsive"/>
+  <% end %>
+  </div>
+  <% end %>
 </section>
 
 
 
 <div class="row">
-<% if @user != nil %>
+  <% if @user != nil %>
 
-<div  class="col-sm-4" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor1 %>;">
-<h2 class="hex-color-text">#<%= @hexcolor1 %></h2>
-</div>
+  <div  class="col-sm-4" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor1 %>;">
+    <h2 class="hex-color-text">#<%= @hexcolor1 %></h2>
+  </div>
 
-<div class="col-sm-4" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor2 %>;">
-<h2 class="hex-color-text">#<%= @hexcolor2 %></h2>
-</div>
+  <div class="col-sm-4" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor2 %>;">
+    <h2 class="hex-color-text">#<%= @hexcolor2 %></h2>
+  </div>
 
-<div  class="col-sm-4" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor3 %>;">
-<h2 class="hex-color-text">#<%= @hexcolor3 %></h2> 
-</div>
-<% else %>
-<div  class="col-sm-4" style=" height: 100px; background-color: #dadada;"></div>
-<% end%>
+  <div  class="col-sm-4" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor3 %>;">
+    <h2 class="hex-color-text">#<%= @hexcolor3 %></h2> 
+  </div>
+  <% else %>
+
+  <% end%>
 </div>
 
 <section class="row typography">
@@ -167,6 +174,7 @@ Sign Up
 <% end %>
 
 </section>
+
 <section class="client-row row">
 
   <div class="col-sm-3">
@@ -185,14 +193,12 @@ Sign Up
   <img src="img/hawthorne_logo.png" class="client-logo">
   </div>
 
-
-
-
 </section>
 
 
-
 </div>
+
+
 
 
 

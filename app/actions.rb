@@ -109,20 +109,14 @@ post '/account/:id' do
 		raise "these did not save"
 	end
 
-
-
-
-
-
-
-
 end
 
 
 
 get '/:name' do
 	@user = Account.find_by(brand: params[:name])
-	@session = (session[:id] = @user.id)
+	@session = (session[:id] == @user.id)
+
 		
  # FIRST THREE PHOTO VARIABLES 
 	if @session != nil
