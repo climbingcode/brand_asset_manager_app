@@ -30,7 +30,6 @@ post '/pdf/:name' do
 
   content_type 'application/pdf'
   pdf = Bampdf.new(@user)
-  pdf.text "#{params[:name]}"
   pdf.render
 end
 

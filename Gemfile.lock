@@ -35,6 +35,7 @@ GEM
     prawn (1.2.1)
       pdf-core (~> 0.2.5)
       ttfunk (~> 1.2.0)
+    prawn-table (0.1.0)
     pry (0.10.0)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -92,6 +93,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   carrierwave
   prawn
+  prawn-table
   pry
   puma
   rake
