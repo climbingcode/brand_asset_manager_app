@@ -20,7 +20,12 @@
         <!--BOOTSTRAP-->
         <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
         <link rel="stylesheet" href="/stylesheets/pick-a-color-1.2.3.min.css">
+                 <!-- Required Bootslider Styles -->
+        <link href="/stylesheets/animate.css" rel="stylesheet" type="text/css" />
+        <link href="/stylesheets/bootslider.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="/stylesheets/main.css">
+
+       
 
 
         <!--TYPEKIT-->
@@ -46,9 +51,41 @@
 <script src="/javascript/plugins.js"></script>
 <script src="/javascript/main.js"></script>
 
-<script type="text/javascript">
+<script src="/javascript/jquery.grozav.plugins.js" type="text/javascript"></script>
+<script src="/javascript/jquery.grozav.bootslider.js" type="text/javascript"></script>
+  <script>
+      $(document).ready(function() {
+          var slider = new bootslider('#bootslider', {
+              animationIn: "fadeInUp",
+              animationOut: "flipOutX",
+              timeout: 5000,
+              autoplay: true,
+              preload: true,
+              pauseOnHover: false,
+              thumbnails: false,
+              pagination: false,
+              mousewheel: false,
+              keyboard: true,
+              touchscreen: true,
+              layout: 'default',
+              canvas: {
+                  width: 1170,
+                  height: 500
+              }
+          });
+          slider.init();
+      });
+  </script>
+
+  <script type="text/javascript">
     $(".pick-a-color").pickAColor();
 </script>
+
+
+
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 
 
 </body>

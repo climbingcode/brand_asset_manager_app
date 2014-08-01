@@ -3,7 +3,12 @@
    Author's custom styles
    ========================================================================== */
 
-
+body{
+  background-color: #999;
+}
+.page{
+  background-color: #dadada;
+}
 *{
   font-family: 'Proxima-nova';
 }
@@ -14,6 +19,24 @@
 
 h1, h2, h3, h4, h5{
   color: #656668;
+}
+
+.call-to-action{
+  background-color: #656668;
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 15px;
+}
+
+.sign-up-btn{
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+    background-color: #9EB2AB;
+  border: solid 2px #7BFFD9;
+  border-radius: 2px;
+  color: #fff;
+  font-weight: 400;
 }
 
 /* ==========================================================================
@@ -28,7 +51,7 @@ h1, h2, h3, h4, h5{
 .logout-button{
   background-color: #9EB2AB;
   border: solid 2px #7BFFD9;
-  border-radius: 1px;
+  border-radius: 2px;
   color: #fff;
   font-weight: 400;
 }
@@ -47,7 +70,15 @@ h1, h2, h3, h4, h5{
   display: inline;
 }
 
+/* ==========================================================================
+  BOOTSLIDER
+   ========================================================================== */
 
+  #bootslider{
+    height: 500px;
+    width: 1170px;
+    margin-top: 100px;
+  }
 
 /* ==========================================================================
   DASHBOARD FORM
@@ -299,5 +330,18 @@ select > .alternate-gothic{
 .headline-box{
   text-align: center;
 }
+
+.client-logo{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.client-row{
+  background-color: #8f8f8f;
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
 
 
