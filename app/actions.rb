@@ -3,11 +3,13 @@ require_relative '../app/helpers/application_helpers.rb'
 
 helpers do 
 
+
 end
 
 get '/' do
 	@user = nil
 	@photo = nil
+	@@errors 
 	erb :index
 end
 
@@ -35,19 +37,28 @@ post '/signin' do
 	end
 end
 
-post '/signup' do 
+post '/signup' do
+
+@errors = [] 
+
 	@account = Account.new(
 		brand: params[:brand],
 		email: params[:email],
 		username: params[:username],
-		password: params[:password]
+		password: params[:password],
+		website_url: params[:website]
 	) 
 		if @account.save 
 			session[:id] = @account.id
 			redirect "account/#{@account.id}"
 		else 
-			raise "there was a problem"
-		end
+				@account && @account.errors.any?
+        @account.errors.full_messages.each do |error| 
+        	display_errors(error)
+        end
+      
+      redirect '/' 
+    end
 end
 
 
