@@ -94,6 +94,7 @@
  
 
 <!-- Modal -->
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -105,48 +106,53 @@
         <div class="modal-body">
           <form action='/signup' method='post'>
             <div>
-              <label>Brand</label>
+              <label>Brand*</label>
               <input type="text" name="brand" placeholder="Brand" >
             </div>
 
             <div>
-              <label>Email</label>
+              <label>Email*</label>
               <input type="text" name="email" placeholder="Email" >
             </div>
 
             <div>
-              <label>Username</label>
+              <label>Username*</label>
               <input type="text" name="username"  placeholder="Username">
             </div>
 
             <div>
-              <label>Emai</label>
+              <label>Password*</label>
               <input type="text" name="password"  placeholder="Password">
             </div>
 
             <div>
-             <button type="submit">Register</button>
+              <label>Website</label>
+              <input type="text" name="website"  placeholder="webite">
+            </div>          
+
+            <div>
+             <button type="submit" class="sign-up-submit">Register</button>
             </div>
-
-
             </form>
+<!-- <<<<<<< HEAD
 
         <div>
 
         </div>
+=======
+>>>>>>> c7b18af7c510c4a3d2e0796253bd24ac8d55a19d -->
         </form>
-    </div>
+    </div>  
+
 <!--     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       <button type="button" class="btn btn-primary">Save changes</button>
     </div> -->
 
-          </div><!--modalbody-->
-
-
-        </div>
-
+      </div><!--modalbody-->
+    </div>
   </div>
+
 </div>
 
 <div class="container">
@@ -171,20 +177,20 @@
 <section class="logo-row row">
   <% if @session != nil%>
   <div class="col-sm-4">
-  <%  if @logo1.url != nil  %>
+  <%  if @logo2 != nil  %>
 
     <img src="<%= @logo2.url %>" class="img-responsive"/>
   <% end %>
   </div>
 
   <div class="col-sm-4">
-  <% if @logo2.url != nil %>
+  <% if @logo1 != nil %>
     <img src="<%= @logo1.url %>" class="img-responsive"/>
   <% end %>
   </div>
 
   <div class="col-sm-4">
-  <%  if @logo3.url  %>
+  <%  if @logo3  %>
     <img src="<%= @logo3.url %>" class="img-responsive"/>
   <% end %>
   </div>
@@ -217,7 +223,7 @@
   <% if @hexcolor3 != nil %>
   <h1>Typography</h1>
     <div class="col-sm-6 headline-box" style="background-color: #<%= @hexcolor3 %>;">
-    <h2>Headline</h2>
+    <h2><%= @mission %></h2>
     
     <h3 style="font-family:'<%= @body %>';"> <%= @body %></h3>
     </div>
@@ -226,8 +232,8 @@
 <% if @hexcolor1 != nil %>
 <div class="col-sm-6 body-box" style="background-color: #<%= @hexcolor1 %>;">
 
-  <h2>Body</h2>
-    <p style="font-family:'<%= @body %>';" class="body-text"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p>
+  <h2><%= @story %></h2>
+    <p style="font-family:'<%= @body %>';" class="body-text"></p>
   <h3 style="font-family:'<%= @body %>';"> <%= @body %></h3>
 </div>
 <% end %>
