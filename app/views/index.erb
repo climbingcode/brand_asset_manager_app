@@ -10,13 +10,13 @@
   <div class="container">
 
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-        <% if @session != nil %>
-          <%=Account.find(@user).brand.upcase%>
+      <% if @session != nil %>
+        <a class="navbar-brand" href="/<%= @user.website_url %>">
+          <%=Account.find(@user).brand.upcase%></a>
         <% else %>
-          BAM
+          <a class"navbar-brand">BAM</a>
         <% end %>
-        </a>
+        
       </div>
     <%if @session == false || @session == nil %>
         <div class="navbar-collapse collapse">
@@ -180,6 +180,14 @@
     <p style="font-family:'<%= @body %>';" class="body-text"></p>
   <h3 style="font-family:'<%= @body %>';"> <%= @body %></h3>
 </div>
+<% end %>
+
+<% if @session != nil%>
+  <section>
+    <form action='/pdf/<%=@user.brand%>' method='post'>   
+      <button type='submit'>BAM</button>
+    </form>
+  </section>
 <% end %>
 
 </section>

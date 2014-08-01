@@ -6,10 +6,11 @@ class Upload < ActiveRecord::Base
 
 
   def check_if_uploaded? 
-    if self.file != nil 
-      return true 
+    if self.file.file != nil
+    	binding.pry
+       true 
     else
-      false 
+       false 
     end
   end
   

@@ -12,6 +12,17 @@ class Account < ActiveRecord::Base
 	validates :email, format: {with: /\A^\S+@\S+\.[a-z]{3,6}/}
 	validate :url_check?, on: :create
 
+	before_validation :strip_whitespace, :only => [:brand, :username, :email, :password]
+
+  private
+
+  def strip_whitespace
+  	self.brand = self.brand.strip
+  	self.username = self.username.strip
+  	self.email = self.email.strip
+  	self.password = self.password.strip
+	end
+
 	def url_check? 
 		return true	if self.website_url =~ URI::regexp
 	end

@@ -9,10 +9,8 @@ end
 get '/' do
 	@user = nil
 	@photo = nil
-	@@errors 
 	erb :index
 end
-
 
 get '/account/:id' do
 	if session[:id] && params[:id].to_i == session[:id]
@@ -26,6 +24,16 @@ post '/logout' do
 	session.clear
 	redirect '/'
 end
+
+post '/pdf/:name' do
+	@user = Account.find_by(brand: params[:name])		
+
+  content_type 'application/pdf'
+  pdf = Bampdf.new(@user)
+  pdf.text "#{params[:name]}"
+  pdf.render
+end
+
 
 post '/signin' do
 	@account = Account.where(username: params[:username] ).where(password: params[:password] )
@@ -66,23 +74,20 @@ post '/account/:id' do
 
 	@brand = Account.find(params[:id])
 
-	@uploaded_file1 = @brand.uploads.new :file => params[:upload1]
-	
-	@uploaded_file2 = @brand.uploads.new :file => params[:upload2]
-	
-	@uploaded_file3 = @brand.uploads.new :file => params[:upload3]
-	
 
-	if @uploaded_file1.check_if_uploaded? && @uploaded_file1.save  
-		true 
+	if params[:upload1] != nil 
+		@uploaded_file1 = @brand.uploads.new :file => params[:upload1]
+		@uploaded_file1.save 
 	end
 
-	if @uploaded_file2.check_if_uploaded? && @uploaded_file2.save  
-		true 
+	if params[:upload2] != nil
+		@uploaded_file2 = @brand.uploads.new :file => params[:upload2]
+		@uploaded_file2.save   
 	end
 
-	if @uploaded_file3.check_if_uploaded? && @uploaded_file3.save  
-		true 
+	if params[:upload3] != nil
+		@uploaded_file3 = @brand.uploads.new :file => params[:upload3]
+		@uploaded_file3.save
 	end
 	# @file1 = File.open(File.join(APP_ROOT, '/uploads', params['upload1'][:filename]), "w") do |f|
 	# 	f.write(params['upload1'][:tempfile].read)
@@ -115,24 +120,17 @@ post '/account/:id' do
 		)
 
 
-
-  
-
 	if (@hexcolor1.save || @hexcolor1.hextriplet == nil) && (@hexcolor2.save || @hexcolor2.hextriplet == nil) && (@hexcolor3.save || @hexcolor3.hextriplet == nil)
 		redirect "/#{Account.find(params[:id]).brand}"
 	else
 		raise "these did not save"
 	end
-
-
-
 end
-
 
 
 get '/:name' do
 	@user = Account.find_by(brand: params[:name])
-	@session = (session[:id] == @user.id)
+	@session = session[:id] == @user.id
 
 		
  # FIRST THREE PHOTO VARIABLES 
@@ -188,6 +186,8 @@ get '/:name' do
 	# end
   
 end
+
+
 
 
 
