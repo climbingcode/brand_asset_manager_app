@@ -52,11 +52,11 @@ post '/signup' do
 			session[:id] = @account.id
 			redirect "account/#{@account.id}"
 		else 
-				@account && @account.errors.any?
+			if @account && @account.errors.any?
         @account.errors.full_messages.each do |error| 
-        	display_errors(error)
+        	error
         end
-      
+      end
       redirect '/' 
     end
 end
@@ -66,29 +66,23 @@ post '/account/:id' do
 
 	@brand = Account.find(params[:id])
 
-	@uploaded_file1 = @brand.uploads.create :file => params[:upload1]
+	@uploaded_file1 = @brand.uploads.new :file => params[:upload1]
 	
-	@uploaded_file2 = @brand.uploads.create :file => params[:upload2]
+	@uploaded_file2 = @brand.uploads.new :file => params[:upload2]
 	
-	@uploaded_file3 = @brand.uploads.create :file => params[:upload3]
+	@uploaded_file3 = @brand.uploads.new :file => params[:upload3]
 	
 
 	if @uploaded_file1.check_if_uploaded? && @uploaded_file1.save  
 		true 
-	else 
-		"these did not save"
 	end
 
-	if @uploaded_file1.check_if_uploaded? && @uploaded_file2.save  
+	if @uploaded_file2.check_if_uploaded? && @uploaded_file2.save  
 		true 
-	else 
-		"these did not save"
 	end
 
-	if @uploaded_file1.check_if_uploaded? && @uploaded_file3.save  
+	if @uploaded_file3.check_if_uploaded? && @uploaded_file3.save  
 		true 
-	else 
-		"these did not save"
 	end
 	# @file1 = File.open(File.join(APP_ROOT, '/uploads', params['upload1'][:filename]), "w") do |f|
 	# 	f.write(params['upload1'][:tempfile].read)
@@ -113,12 +107,24 @@ post '/account/:id' do
 		account_id: params[:id]
 		)
 	@type.save
+	
+	
+	@copy = @brand.update_attributes!(
+		mission_statement: params[:mission_statement],
+		story: params[:brand_story]
+		)
+
+
+
+  
 
 	if (@hexcolor1.save || @hexcolor1.hextriplet == nil) && (@hexcolor2.save || @hexcolor2.hextriplet == nil) && (@hexcolor3.save || @hexcolor3.hextriplet == nil)
 		redirect "/#{Account.find(params[:id]).brand}"
 	else
 		raise "these did not save"
 	end
+
+
 
 end
 
@@ -132,13 +138,13 @@ get '/:name' do
  # FIRST THREE PHOTO VARIABLES 
 	if @session != nil
 
-		if @user.uploads[0].file != nil 
+		if @user.uploads[0] != nil 
 			@logo1 = @user.uploads[0].file
 		end
-		if @user.uploads[1].file != nil 
+		if @user.uploads[1] != nil 
 			@logo2 = @user.uploads[1].file
 		end
-		if @user.uploads[2].file != nil 
+		if @user.uploads[2] != nil 
 			@logo3 = @user.uploads[2].file
 		end	
 
@@ -162,6 +168,16 @@ get '/:name' do
 		if @user.fonts[0].headline != nil
 			@headline = @user.fonts[0].headline
 		end
+
+	
+
+		if @user.mission_statement != nil
+			@mission = @user.mission_statement
+		end
+
+		if @user.story != nil
+			@story = @user.story
+		end 
 
 	end
 
