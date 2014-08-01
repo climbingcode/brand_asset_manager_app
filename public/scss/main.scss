@@ -1,3 +1,6 @@
+$primary-color: #29CFC3;
+$dark-grey: #666;
+
 
 /* ==========================================================================
    Author's custom styles
@@ -18,11 +21,11 @@ body{
 }
 
 h1, h2, h3, h4, h5{
-  color: #656668;
+  color: $dark-grey;
 }
 
 .call-to-action{
-  background-color: #656668;
+  background-color: $dark-grey;
   margin-left: -15px;
   margin-right: -15px;
   padding: 15px;
@@ -36,11 +39,11 @@ h1, h2, h3, h4, h5{
 
 
 .navbar{
-  background-color: #656668;
+  background-color: $dark-grey;
 }
 
 .logout-button{
-  background-color: #9EB2AB;
+  background-color: $primary-color;
   border: solid 2px #7BFFD9;
   border-radius: 2px;
   color: #fff;
@@ -77,7 +80,7 @@ h1, h2, h3, h4, h5{
 
 
 .header-wrapper{
-  background-color: #656668;
+  background-color: $dark-grey;
   margin-left: -15px;
   margin-right: -15px;
 }
@@ -157,7 +160,7 @@ select > .alternate-gothic{
 }
 
 .dashboard-submit{
-    background-color: #9EB2AB;
+    background-color: $primary-color;
   border: solid 2px #7BFFD9;
   border-radius: 1px;
   color: #fff;
@@ -167,18 +170,18 @@ select > .alternate-gothic{
   background-color: #7BFFD9;
 }
 
-.hash{
-  position: absolute;
-  background-color: #444;
-  height: 45px;
-  width: 45px;
-  margin-top: 10px;
-  color: #fff;
-  font-size: 2em;
-  font-weight: 400;
-  padding-left: 15px;
-  padding-top: 5px;
-}
+// .hash{
+//   position: absolute;
+//   background-color: #444;
+//   height: 45px;
+//   width: 45px;
+//   margin-top: 10px;
+//   color: #fff;
+//   font-size: 2em;
+//   font-weight: 400;
+//   padding-left: 15px;
+//   padding-top: 5px;
+// }
 
 
 /*--------------------------------*/
@@ -279,7 +282,7 @@ select > .alternate-gothic{
   color: #fff;
   content: 'Upload';
   display: inline-block;
-  background-color: #9EB2AB;
+  background-color: $primary-color;
   border: solid 2px #7BFFD9;
   border-radius: 1px;
   padding: 5px 8px;
@@ -339,8 +342,12 @@ select > .alternate-gothic{
 MODAL
 =====================================================*/
 
+
+
 .modal-body, .modal-footer{
   background-color: #dadada;
+  height: 600px;
+  text-align: center;
 }
 .modal-header{
   background-color: #999;
@@ -356,9 +363,9 @@ MODAL
   margin-right: auto;
   margin-left: auto;
   display: block;
-  background-color: #9EB2AB;
-  border: solid 2px #7BFFD9;
-  border-radius: 2px;
+  background-color: $primary-color;
+  border:none;
+    border-radius: 3px;
   color: #fff;
   font-weight: 400;
 }
@@ -371,7 +378,7 @@ MODAL
 .x-out:hover{
   color: #7BFFD9;
 }
-}
+
 .close{
   opacity: 1!important;
 }
@@ -381,9 +388,33 @@ MODAL
 crazy form styles
 =====================================================*/
 
-.slide-up {
+
+.input-row{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.row span {
+  position: relative;
   display: inline-block;
-  width: 150px;
+  margin: 15px 10px;
+}
+
+
+span:nth-child(2) .gate {
+  text-indent: 85px;
+}
+
+span:nth-child(2) .gate:focus,
+span:nth-child(2) .gate:active {
+  text-indent: 0;
+}
+
+
+.slide-up {
+  display: block;
+  width: 100;
   padding: 10px 0 10px 15px;
   font-family: "Open Sans", sans;
   font-weight: 400;
@@ -426,12 +457,12 @@ crazy form styles
   left: 5px;
   right: 5px;
   bottom: 6px;
-  background: #377D6A;
+  background: $primary-color;
 }
 .slide-up + label:after {
   top: 0;
   bottom: 0;
-  background: #377D6A;
+  background: $primary-color;
 }
 
 span:nth-child(1) .slide-up {
@@ -472,7 +503,24 @@ span:nth-child(3) .slide-up:active {
   transform: translateY(100%);
 }
 
+
+span:nth-child(2) .card-slide {
+  text-indent: 55px;
+}
+
+span:nth-child(3) .card-slide {
+  text-indent: 150px;
+}
+
+span:nth-child(2) .card-slide:focus,
+span:nth-child(2) .card-slide:active,
+span:nth-child(3) .card-slide:focus,
+span:nth-child(3) .card-slide:active {
+  text-indent: 0;
+}
+
+
 .form-row{
   height: 300px;
-  padding-top: 100px; 
+
 }
