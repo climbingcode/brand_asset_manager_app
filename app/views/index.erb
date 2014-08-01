@@ -56,9 +56,9 @@
 
 <!-- Button trigger modal -->
 
-  <% if @session == false %>
+  <% if @session == false || @session == nil %>
     <div class="call-to-action">
-    <button class="btn sign-up-btn" data-toggle="modal" data-target="#myModal">
+    <button class="btn sign-up-btn bam-button" data-toggle="modal" data-target="#myModal">
     Sign Up
     </button>
     </div>
@@ -102,17 +102,6 @@
 
 
             </form>
-
-
-        <div>
-          <label>Email</label>
-          <input type="text" name="password"  placeholder="Password">
-        </div>
-
-        <div>
-          <label>Website</label>
-          <input type="text" name="website"  placeholder="Password">
-        </div>
 
         <div>
          <button type="submit" class="sign-up-submit">Register</button>
