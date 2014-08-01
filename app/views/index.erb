@@ -15,15 +15,14 @@
           <%=Account.find(@user).brand.upcase%></a>
         <% else %>
 
-          <a class"navbar-brand">BAM</a>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 350 350" enable-background="new 0 0 350 350" xml:space="preserve">
 
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="75px" height="75px" viewBox="0 0 350 350" enable-background="new 0 0 350 350" xml:space="preserve">
               <style>
                 .style0{
                   fill: transparent;
                 }
                 .style1{
-                  fill: #F1656A;
+                  fill: #fff;
                 }
               </style><g>
                 <line x1="94.8" y1="40.8" x2="94.8" y2="341.2" class="style0"/>
@@ -104,40 +103,69 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span class="x-out" aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Create An Account</h4>
       </div><!--modal-header-->
 
         <div class="modal-body">
           <form action='/signup' method='post'>
-            <div>
-              <label>Brand*</label>
-              <input type="text" name="brand" placeholder="Brand" >
+
+
+        <div class="row form-row">
+
+          <div class="row input-row">
+            <div class="col-sm-12">
+              <span>
+                <input class="slide-up" id="brand" type="text" name="brand" placeholder="What is your brand?" />
+                <label for="brand">Brand</label>
+              </span>
+            </div>
+          </div>
+
+            <div class="row input-row">
+              <div class="col-sm-12">
+                <span>
+                  <input class="slide-up" id="email" type="text" name="email" placeholder="We won't spam you!" />
+                  <label for="email">Email</label>
+                </span>
+              </div>
             </div>
 
-            <div>
-              <label>Email*</label>
-              <input type="text" name="email" placeholder="Email" >
+          <div class="row input-row">
+            <div class="col-sm-12">
+            <span>
+              <input class="slide-up" id="username" type="text" name="username" placeholder="What Should We Call You?" />
+              <label for="username">Username</label>
+            </span>
             </div>
+          </div>
 
-            <div>
-              <label>Username*</label>
-              <input type="text" name="username"  placeholder="Username">
+          <div class="row input-row">
+            <div class="col-sm-12">
+            <span>
+              <input class="slide-up" id="password" type="text" placeholder="Don't Forget!" />
+              <label for="password">Password</label>
+            </span>
             </div>
+          </div>
 
-            <div>
-              <label>Password*</label>
-              <input type="text" name="password"  placeholder="Password">
+          <div class="row input-row">
+            <div class="col-sm-12">
+              <span>
+                <input class="slide-up" id="website" type="text" placeholder="Website" />
+                <label for="website">Website</label>
+              </span>
             </div>
+          </div>
 
-            <div>
-              <label>Website</label>
-              <input type="text" name="website"  placeholder="webite">
-            </div>          
-
-            <div>
-             <button type="submit" class="sign-up-submit">Register</button>
+          <div>
+             <button type="submit" class="sign-up-submit bam-button">Register</button>
             </div>
+          </div>
             </form>
+
+            
+
+
 <!-- <<<<<<< HEAD
 
         <div>
@@ -161,20 +189,7 @@
 
 <div class="container">
 
-<div class="row form-row">
-  <span>
-    <input class="slide-up" id="card" type="text" placeholder="Fund me!" />
-    <label for="card">Credit Card</label>
-  </span>
-  <span>
-    <input class="slide-up" id="expires" type="text" placeholder="Month Day, Year" />
-    <label for="expires">Expires</label>
-  </span>
-  <span>
-    <input class="slide-up" id="security" type="text" placeholder="Public" />
-    <label for="security">Security Code</label>
-  </span>
-</div>
+
 
 
 
