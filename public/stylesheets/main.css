@@ -28,16 +28,7 @@ h1, h2, h3, h4, h5{
   padding: 15px;
 }
 
-.sign-up-btn{
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
-    background-color: #9EB2AB;
-  border: solid 2px #7BFFD9;
-  border-radius: 2px;
-  color: #fff;
-  font-weight: 400;
-}
+
 
 /* ==========================================================================
  NAVIGATION
@@ -67,7 +58,7 @@ h1, h2, h3, h4, h5{
 }
 
 .sign-in-button{
-  display: inline;
+  display: inline!important;
 }
 
 /* ==========================================================================
@@ -343,5 +334,46 @@ select > .alternate-gothic{
   padding-bottom: 45px;
 }
 
+
+/*===================================================
+MODAL
+=====================================================*/
+
+.modal-body, .modal-footer{
+  background-color: #dadada;
+}
+.modal-header{
+  background-color: #999;
+}
+.modal-title{
+  color: #fff;
+}
+.modal-footer{
+  margin-top: 0px;
+}
+
+.bam-button{
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  background-color: #9EB2AB;
+  border: solid 2px #7BFFD9;
+  border-radius: 2px;
+  color: #fff;
+  font-weight: 400;
+}
+
+.x-out{
+  color: #fff;
+  font-size: 1.5em;
+  opacity: 1!important;
+}
+.x-out:hover{
+  color: #7BFFD9;
+}
+}
+.close{
+  opacity: 1!important;
+}
 
 

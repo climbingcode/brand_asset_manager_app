@@ -25,7 +25,7 @@
                 <input type="password" name="password"  placeholder="Password" class="form-control">
               </div>
 
-                <button type="submit" class="sign-in-button btn btn-success">Sign in</button>
+                <button type="submit" class="sign-in-button bam-button">Sign in</button>
           </form>
           </form>   
             </form>
@@ -50,7 +50,7 @@
 
 <!-- Button trigger modal -->
 <div class="call-to-action">
-<button class="btn sign-up-btn" data-toggle="modal" data-target="#myModal">
+<button class="bam-button" data-toggle="modal" data-target="#myModal">
 Sign Up
 </button>
 </div>
@@ -60,8 +60,8 @@ Sign Up
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      <button type="button" class="close" data-dismiss="modal"><span class="x-out" aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4 class="modal-title" id="myModalLabel">Create An Account</h4>
     </div>
     <div class="modal-body">
       <form action='/signup' method='post'>
@@ -82,19 +82,24 @@ Sign Up
         </div>
 
         <div>
-          <label>Emai</label>
+          <label>Email</label>
           <input type="text" name="password"  placeholder="Password">
         </div>
 
         <div>
-         <button type="submit">Register</button>
+          <label>Website</label>
+          <input type="text" name="website"  placeholder="Password">
+        </div>
+
+        <div>
+         <button type="submit" class="sign-up-submit">Register</button>
         </div>
         </form>
     </div>
-    <div class="modal-footer">
+<!--     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       <button type="button" class="btn btn-primary">Save changes</button>
-    </div>
+    </div> -->
   </div>
 </div>
 </div>
