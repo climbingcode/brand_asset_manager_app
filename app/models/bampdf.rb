@@ -82,6 +82,9 @@ end
  		file_path3 = "#{file3.root}#{file3.url}"	
  	end
 		
+ 	grid([1,3], [1,8]).bounding_box do
+		text "ASSETS", :width => 300, :height => 50, :align => :center, size: 15, style: :bold
+	end
 
 	if @uploads.count == 1
 		grid([1,4], [300,7] ).bounding_box do
@@ -93,15 +96,15 @@ end
 	end
 	
 	if @uploads.count == 2
-		grid([1,2], [4,6] ).bounding_box do
+		grid([2,2], [4,6] ).bounding_box do
 				begin 
-					image file_path1, :height => 150, :width => 150 
+					image file_path1, :height => 120, :width => 120 
 				rescue
 				end
 
 				grid([0,4], [3,9] ).bounding_box do
 				begin 
-				image file_path2, :height => 150, :width => 150, :align => :center
+				image file_path2, :height => 120, :width => 120, :align => :center
 				rescue
 				end
 			end
@@ -129,40 +132,43 @@ end
 		end
 	end	
 
-	grid([4,3], [4,8]).bounding_box do
-		text "MISSION STATEMENT", :width => 300, :height => 50, :align => :center, size: 15, style: :bold
+	
+
+	if @account.mission_statement != nil
+
+		grid([4,3], [4,8]).bounding_box do
+		text "MISSION STATEMENT", :width => 300, :height => 50, :align => :center, size: 15, style: :bold, :font => "new times roman"
 	end
+		string = @account.mission_statement
 
-	fill_color "000000"
-	string = @account.mission_statement
-
- 	grid([5,3], [5,7]).bounding_box do
-		y_position = cursor - 10
-		[:center].each_with_index do |mode, i|
- 		text_box string, :at => [i * 600, y_position],
- 		:width => 300, :height => 50, :align => :center
- 		
+	 	grid([5,3], [5,7]).bounding_box do
+			y_position = cursor - 10
+			[:center].each_with_index do |mode, i|
+	 		text_box string, :at => [i * 600, y_position],
+	 		:width => 300, :height => 50, :align => :center
+	 		
+			end
 		end
 	end
 
 
+if account.hexcolors.first != nil
+		fill_color "#{account.hexcolors.first.hextriplet}"
+end
 
-	grid([6,3], [6,8]).bounding_box do
-		text "STORY", :width => 300, :height => 50, :align => :center, size: 15, style: :bold
-	end
+	if @account.mission_statement != nil 
+		string = @account.story
 
+		grid([6,3], [6,8]).bounding_box do
+			text "STORY", :width => 300, :height => 50, :align => :center, size: 15, style: :bold
+		end
 
-	#story 	
-	string = @account.story
-
-	grid([7,3], [7,8]).bounding_box do
-	text string
-	y_position = cursor - 20
-	[:center].each_with_index do |mode, i|
-	text_box string, :at => [i * 600, y_position],
-	:width => 300, :height => 200, :align => :center
-
-
+		grid([7,3], [7,8]).bounding_box do
+		y_position = cursor - 20
+		[:center].each_with_index do |mode, i|
+		text_box string, :at => [i * 600, y_position],
+		:width => 300, :height => 200, :align => :center
+			end
 		end
 	end
 end

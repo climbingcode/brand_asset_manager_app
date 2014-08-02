@@ -7,10 +7,10 @@ class Account < ActiveRecord::Base
 	has_many :hexcolors
   has_many :fonts
 
- #  validates :brand, :username, presence: true, uniqueness: true
- #  validates :username, :password, length: {maximum: 12, minimum: 6} 
+  validates :brand, :username, presence: true
+  validates :username, :password, length: {maximum: 12} 
 	# #validates :email, format: {with: /\A^\S+@\S+\.[a-z]{3,6}/}
-	# validate :url_check?, on: :create
+ 
 
 	before_validation :strip_whitespace, :only => [:brand, :username, :email, :password]
 
