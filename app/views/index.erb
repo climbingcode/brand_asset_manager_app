@@ -41,14 +41,12 @@
                 </g>
               </g>
               </svg>
-
-              </a>
-
+            </a>
 
         <% if @session != nil %>
           <%=Account.find(@user).brand.upcase%>
         <% else %>
-          
+
         <% end %>
         
       </div>
@@ -135,9 +133,11 @@
   <hr/>
     <p>Download Your Assets</p>
     <ul class="download-links">
+    <%if @logo1 != nil%>
     <li><a href="<%= @logo1.url %>" download="<%= @logo1%>" ><%= @logo1%></a></li>
     <hr/>
         <li><a><%= @logo1.url %></a></li>
+    <%end%>
     <hr/>
     </ul>
   </section>
