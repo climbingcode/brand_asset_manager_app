@@ -33,11 +33,13 @@ h1, h2, h3, h4, h5 {
 
 .dashboard-link {
   float: right;
-  color: #9eb2ab; }
+  color: #13a89e; }
 
 .client-header {
-  background-color: #9eb2ab;
+  color: #fff;
   text-align: center; }
+  .client-header h1 {
+    color: #fff; }
 
 .client-row {
   padding-top: 0px; }
@@ -56,7 +58,7 @@ h1, h2, h3, h4, h5 {
   background-color: #666666; }
 
 .logout-button {
-  background-color: #9eb2ab;
+  background-color: #13a89e;
   border: solid 2px #7BFFD9;
   border-radius: 2px;
   color: #fff;
@@ -106,6 +108,7 @@ h1, h2, h3, h4, h5 {
   float: none;
   background: #999;
   margin-top: 60px;
+  margin-bottom: 45px;
   box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.1); }
 
 .form-background {
@@ -158,10 +161,8 @@ select > .alternate-gothic {
   display: inline;
   text-align: center; }
 
-.dashboard-submit {
-  background-color: #9eb2ab;
-  border: solid 2px #7BFFD9;
-  border-radius: 1px;
+.dashboard-button {
+  font-size: 1.5em;
   color: #fff;
   font-weight: 400; }
 
@@ -265,7 +266,7 @@ select > .alternate-gothic {
   color: #fff;
   content: 'Upload';
   display: inline-block;
-  background-color: #9eb2ab;
+  background-color: #13a89e;
   border-radius: 1px;
   padding: 5px 8px;
   margin-bottom: 15px;
@@ -327,7 +328,7 @@ MODAL
   margin-right: auto;
   margin-left: auto;
   display: block;
-  background-color: #9eb2ab;
+  background-color: #13a89e;
   border: none;
   border-radius: 3px;
   color: #fff;
@@ -378,7 +379,7 @@ span:nth-child(2) .gate:active {
   padding: 10px 0 10px 15px;
   font-family: "Open Sans", sans;
   font-weight: 400;
-  color: #9eb2ab;
+  color: #13a89e;
   background: #efefef;
   border: 0;
   border-radius: 3px;
@@ -398,14 +399,14 @@ span:nth-child(2) .gate:active {
   top: 0;
   left: 0;
   padding: 10px 15px;
-  background: #9eb2ab;
+  background: #13a89e;
   transition: all .3s ease-in-out;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px; }
 
 .basic-slide:focus,
 .basic-slide:active {
-  color: #9eb2ab !important;
+  color: #13a89e !important;
   text-indent: 0;
   background: #fff;
   border-top-left-radius: 0;

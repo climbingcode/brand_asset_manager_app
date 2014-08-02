@@ -1,4 +1,4 @@
-$primary-color: #9eb2ab;
+$primary-color: #13a89e;
 $dark-grey: #666;
 
 
@@ -49,8 +49,12 @@ h1, h2, h3, h4, h5{
   color: $primary-color;
 }
 .client-header{
-  background-color: $primary-color;
+  color: #fff;
   text-align: center;
+
+  h1{
+    color: #fff;
+  }
 }
 
 .client-row{
@@ -65,6 +69,7 @@ h1, h2, h3, h4, h5{
 
 .in-session-page{
   padding-top: 45px;
+
 }
 
 
@@ -140,6 +145,7 @@ h1, h2, h3, h4, h5{
   float: none;
   background: #999;
   margin-top: 60px;
+  margin-bottom: 45px;
   box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -202,10 +208,8 @@ select > .alternate-gothic{
   text-align: center;
 }
 
-.dashboard-submit{
-    background-color: $primary-color;
-  border: solid 2px #7BFFD9;
-  border-radius: 1px;
+.dashboard-button{
+  font-size: 1.5em;
   color: #fff;
   font-weight: 400;
 }
