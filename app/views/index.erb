@@ -52,6 +52,10 @@
       </div>
     <%if @session == false || @session == nil %>
         <div class="navbar-collapse collapse">
+
+          <form class="pull-right">
+          <input type="text" placeholder="Search">
+          </form>
           <form action='/signin' method='post' class="navbar-form navbar-right" role="form">
 
               <div class="form-group">
