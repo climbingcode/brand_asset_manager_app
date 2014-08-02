@@ -12,7 +12,7 @@ body {
   font-family: 'Proxima-nova'; }
 
 *:focus {
-  outline: 0; }
+  outline: 0 !important; }
 
 h1, h2, h3, h4, h5 {
   color: #666666; }
@@ -36,10 +36,11 @@ h1, h2, h3, h4, h5 {
   color: #13a89e; }
 
 .client-header {
-  color: #fff;
+  padding: 45px;
+  background-color: #fff;
   text-align: center; }
   .client-header h1 {
-    color: #fff; }
+    color: #999; }
 
 .client-row {
   padding-top: 0px; }
@@ -74,7 +75,8 @@ h1, h2, h3, h4, h5 {
   color: #fff; }
 
 .sign-in-button {
-  display: inline !important; }
+  display: inline !important;
+  height: 34px; }
 
 /* ==========================================================================
   BOOTSLIDER
@@ -101,6 +103,13 @@ h1, h2, h3, h4, h5 {
 .header-wrapper h1 {
   color: white;
   padding: 15px; }
+
+.js-color-input {
+  font-size: 1.5em;
+  width: 100%;
+  font-family: 'Proxima-nova';
+  outline: none;
+  border: none; }
 
 .form-wrapper {
   margin-left: auto;
@@ -304,7 +313,6 @@ select > .alternate-gothic {
 
 .client-row {
   background-color: #8f8f8f;
-  padding-top: 45px;
   padding-bottom: 45px; }
 
 /*===================================================
@@ -314,6 +322,10 @@ MODAL
   background-color: #dadada;
   height: 600px;
   text-align: center; }
+  .modal-body .row span, .modal-footer .row span {
+    position: relative;
+    display: inline-block;
+    margin: 10px 10px; }
 
 .modal-header {
   background-color: #999; }
@@ -347,7 +359,7 @@ MODAL
   opacity: 1 !important; }
 
 .x-out:hover {
-  color: #7BFFD9; }
+  color: #13a89e; }
 
 .close {
   opacity: 1 !important; }
@@ -359,11 +371,6 @@ crazy form styles
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 5px; }
-
-.row span {
-  position: relative;
-  display: inline-block;
-  margin: 10px 10px; }
 
 span:nth-child(2) .gate {
   text-indent: 85px; }

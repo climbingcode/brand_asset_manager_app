@@ -18,7 +18,7 @@ body{
 }
 
 *:focus {
-    outline: 0;
+    outline: 0!important;
 }
 
 h1, h2, h3, h4, h5{
@@ -49,11 +49,13 @@ h1, h2, h3, h4, h5{
   color: $primary-color;
 }
 .client-header{
-  color: #fff;
+  padding: 45px;
+  background-color: #fff;
+
   text-align: center;
 
   h1{
-    color: #fff;
+    color: #999;
   }
 }
 
@@ -103,6 +105,7 @@ h1, h2, h3, h4, h5{
 
 .sign-in-button{
   display: inline!important;
+  height: 34px;
 }
 
 /* ==========================================================================
@@ -136,6 +139,14 @@ h1, h2, h3, h4, h5{
 .header-wrapper h1{
   color: white;
   padding: 15px;
+}
+
+.js-color-input{
+  font-size: 1.5em;
+  width: 100%;
+  font-family: 'Proxima-nova';
+  outline: none;
+  border: none;
 }
 
 
@@ -387,7 +398,6 @@ select > .alternate-gothic{
 
 .client-row{
   background-color: #8f8f8f;
-  padding-top: 45px;
   padding-bottom: 45px;
 }
 
@@ -396,12 +406,16 @@ select > .alternate-gothic{
 MODAL
 =====================================================*/
 
-
-
 .modal-body, .modal-footer{
   background-color: #dadada;
   height: 600px;
   text-align: center;
+
+    .row span {
+  position: relative;
+  display: inline-block;
+  margin: 10px 10px;
+}
 }
 .modal-header{
   background-color: #999;
@@ -439,7 +453,7 @@ MODAL
   opacity: 1!important;
 }
 .x-out:hover{
-  color: #7BFFD9;
+  color: $primary-color;
 }
 
 .close{
@@ -456,13 +470,10 @@ crazy form styles
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 5px;
+
 }
 
-.row span {
-  position: relative;
-  display: inline-block;
-  margin: 10px 10px;
-}
+
 
 
 span:nth-child(2) .gate {
