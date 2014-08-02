@@ -10,10 +10,12 @@ get '/' do
 	@user = nil
 	@photo = nil
 	@home_logos = Upload.all.pluck(:file)
-	@@errors 
 	erb :index
 end
 
+get '/error' do
+	erb :error
+end
 
 get '/account/:id' do
 	if session[:id] && params[:id].to_i == session[:id]
@@ -28,15 +30,23 @@ post '/logout' do
 	redirect '/'
 end
 
-post '/signin' do
-	@account = Account.where(username: params[:username] ).where(password: params[:password] )
+post '/pdf/:name' do
+	@user = Account.find_by(brand: params[:name])		
 
-	if @account[0] != nil
+  content_type 'application/pdf'
+  pdf = Bampdf.new(@user)
+  pdf.render
+end
+
+
+post '/signin' do
+	@account = Account.where(username: params[:username]).where(password: params[:password] )
+	if @account[0] != nil 
 
 		@session = (session[:id] = @account[0].id) 
 		redirect "/#{@account[0].brand}"
 	else
-		raise "This is not an account"
+		redirect '/error'
 	end
 end
 
@@ -55,87 +65,75 @@ post '/signup' do
 			session[:id] = @account.id
 			redirect "account/#{@account.id}"
 		else 
-			if @account && @account.errors.any?
-        @account.errors.full_messages.each do |error| 
-        	error
-        end
-      end
-      redirect '/' 
-    end
+			redirect "/"
+     end
 end
-
 
 post '/account/:id' do
 
 	@brand = Account.find(params[:id])
 
-	@uploaded_file1 = @brand.uploads.new :file => params[:upload1]
-	
-	@uploaded_file2 = @brand.uploads.new :file => params[:upload2]
-	
-	@uploaded_file3 = @brand.uploads.new :file => params[:upload3]
-	
 
-	if @uploaded_file1.check_if_uploaded? && @uploaded_file1.save  
-		true 
+	if params[:upload1] != nil 
+		@uploaded_file1 = @brand.uploads.new :file => params[:upload1]
+		@uploaded_file1.save 
 	end
 
-	if @uploaded_file2.check_if_uploaded? && @uploaded_file2.save  
-		true 
+	if params[:upload2] != nil
+		@uploaded_file2 = @brand.uploads.new :file => params[:upload2]
+		@uploaded_file2.save   
 	end
 
-	if @uploaded_file3.check_if_uploaded? && @uploaded_file3.save  
-		true 
+	if params[:upload3] != nil
+		@uploaded_file3 = @brand.uploads.new :file => params[:upload3]
+		@uploaded_file3.save
 	end
-	# @file1 = File.open(File.join(APP_ROOT, '/uploads', params['upload1'][:filename]), "w") do |f|
-	# 	f.write(params['upload1'][:tempfile].read)
-	# end
-	
-	@hexcolor1 = Hexcolor.new(
+
+
+if params[:hexcolor1] != "000000"
+
+	@hexcolor1 = Hexcolor.create(
 		hextriplet: params[:hexcolor1],
 		account_id: params[:id]
 		)
-	@hexcolor2 = Hexcolor.new(
+end
+
+if params[:hexcolor2] != "000000"
+	@hexcolor2 = Hexcolor.create(
 		hextriplet: params[:hexcolor2],
 		account_id: params[:id]
 		)
-	@hexcolor3 = Hexcolor.new(
+end
+
+if params[:hexcolor3] != "000000"
+	@hexcolor3 = Hexcolor.create(
 		hextriplet: params[:hexcolor3],
 		account_id: params[:id]
 		)
+end
 
-	@type = Font.new(
+	@type = Font.create(
 		body: params[:bodytype],
 		headline: params[:headlinetype],
 		account_id: params[:id]
 		)
-	@type.save
-	
-	
-	@copy = @brand.update_attributes!(
+
+
+	if (params[:mission_statement] != " ") && (params[:story] != " ")
+			@copy = @brand.update_attributes(
 		mission_statement: params[:mission_statement],
 		story: params[:brand_story]
 		)
-
-
-
-  
-
-	if (@hexcolor1.save || @hexcolor1.hextriplet == nil) && (@hexcolor2.save || @hexcolor2.hextriplet == nil) && (@hexcolor3.save || @hexcolor3.hextriplet == nil)
-		redirect "/#{Account.find(params[:id]).brand}"
-	else
-		raise "these did not save"
 	end
 
-
+	redirect "/#{Account.find(params[:id]).brand}"
 
 end
 
 
-
 get '/:name' do
 	@user = Account.find_by(brand: params[:name])
-	@session = (session[:id] == @user.id)
+	@session = session[:id] == @user.id
 
 		
  # FIRST THREE PHOTO VARIABLES 
@@ -164,7 +162,8 @@ get '/:name' do
 		end	
 
 # FONTS 
-		if @user.fonts[0].body != nil
+begin 
+		if @user.fonts != nil	
 			@body = @user.fonts[0].body
 		end
 
@@ -181,6 +180,8 @@ get '/:name' do
 		if @user.story != nil
 			@story = @user.story
 		end 
+rescue
+end
 
 	end
 
@@ -191,6 +192,8 @@ get '/:name' do
 	# end
   
 end
+
+
 
 
 

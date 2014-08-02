@@ -8,6 +8,8 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
+require 'prawn'
+
 
 require 'pry'
 
