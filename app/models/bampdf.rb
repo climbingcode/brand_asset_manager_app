@@ -3,18 +3,63 @@ require 'prawn/table'
 
 class Bampdf < Prawn::Document 
 
+	attr_accessor :hexcolors
+
 	def initialize(account)
 		super()
-		@hexcolors = account.hexcolors  
+		@hexcolors = account.hexcolors
 		@uploads = account.uploads
-		@font = account.fonts
 		@account = account
 
-		text_content
+		gap = 20
+		bounding_box([0, cursor], :width => 550, :height => 720) do
+ 		box_content("Fixed height")
+ 		bounding_box([gap, cursor - gap], :width => 500) do
+ 		images
+ 		bounding_box([gap, bounds.top - gap], :width => 600) do
+ 		table_content
+		transparent(0.5) { dash(1); stroke_bounds; undash }
+		 end
+		 bounding_box([gap * 7, bounds.top - gap], :width => 100, :height => 200) do
+		 box_content("Fixed height")
+		 text_content
+		 end
+		 transparent(0.5) { dash(1); stroke_bounds; undash }
+		 end
+		 bounding_box([gap, cursor - gap], :width => 300, :height => 50) do
+		 box_content("Fixed height")
+		end
+end
+
+		
+		
 		table_content
+		text_content
+		
 	end
 
-	 
+
+def box_content(images)
+ text images
+ transparent(0.5) { stroke_bounds }
+end
+
+
+	def images
+		bounding_box([0, cursor], :width => 550, :height => 300) do
+	 	stroke_bounds
+
+ 		file1 = @uploads.first.file
+ 		file_path1 = "#{file1.root}#{file1.url}"
+
+ 		file2 = @uploads[1].file
+ 		file_path2 = "#{file2.root}#{file2.url}"
+		
+		image file_path1, :height => 100, :width => 100
+		image file_path2, :height => 100, :width => 100		 
+		end
+	end	
+
  
   def text_content
     # The cursor for inserting content starts on the top left of the page. Here we move it down a little to create more space between the text and the image inserted above
@@ -22,13 +67,13 @@ class Bampdf < Prawn::Document
  
     # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
     bounding_box([0, y_position], :width => 270, :height => 300) do
-      text "Lorem ipsum", size: 15, style: :bold
-      text "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum semper placerat. Aenean mattis fringilla risus ut fermentum. Fusce posuere dictum venenatis. Aliquam id tincidunt ante, eu pretium eros. Sed eget risus a nisl aliquet scelerisque sit amet id nisi. Praesent porta molestie ipsum, ac commodo erat hendrerit nec. Nullam interdum ipsum a quam euismod, at consequat libero bibendum. Nam at nulla fermentum, congue lectus ut, pulvinar nisl. Curabitur consectetur quis libero id laoreet. Fusce dictum metus et orci pretium, vel imperdiet est viverra. Morbi vitae libero in tortor mattis commodo. Ut sodales libero erat, at gravida enim rhoncus ut."
+      text "Mission Statement", size: 15, style: :bold
+      text @account.mission_statement
     end
  
     bounding_box([300, y_position], :width => 270, :height => 300) do
-      text "Duis vel", size: 15, style: :bold
-      text "Duis vel tortor elementum, ultrices tortor vel, accumsan dui. Nullam in dolor rutrum, gravida turpis eu, vestibulum lectus. Pellentesque aliquet dignissim justo ut fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut venenatis massa non eros venenatis aliquet. Suspendisse potenti. Mauris sed tincidunt mauris, et vulputate risus. Aliquam eget nibh at erat dignissim aliquam non et risus. Fusce mattis neque id diam pulvinar, fermentum luctus enim porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+      text "Story", size: 15, style: :bold
+      text @account.story
     end
  
   end
@@ -37,21 +82,20 @@ class Bampdf < Prawn::Document
     # This makes a call to product_rows and gets back an array of data that will populate the columns and rows of a table
     # I then included some styling to include a header and make its text bold. I made the row background colors alternate between grey and white
     # Then I set the table column widths
-
+   
+    
     table hex_colors_rows do
 
       row(0).font_style = :bold
       self.header = true
-      self.row_colors = ['DDDDDD', 'FFFFFF']
+      self.row_colors = ["#444444"]
       self.column_widths = [80, 300, 200]
     end
   end
  
    def hex_colors_rows
-    [['hexcolors']] +
-      @hexcolors.map do |hexcolors|
-      [hexcolors.hextriplet]
-    end
+    [['hexcolor']] +
+      @hexcolors.map {|colors| [colors.hextriplet] }
   end
 
 
