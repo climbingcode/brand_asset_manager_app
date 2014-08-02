@@ -29,8 +29,8 @@ function bootslider(target, options) {
         parallax: 0.2,
         layout: 'default',
         canvas: {
-            width: 1920,
-            height: 1080
+            width: 1170,
+            height: 700
         }
     }, options);
 

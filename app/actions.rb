@@ -9,6 +9,7 @@ end
 get '/' do
 	@user = nil
 	@photo = nil
+	@home_logos = Upload.all.pluck(:file)
 	erb :index
 end
 
@@ -36,7 +37,9 @@ end
 
 post '/signin' do
 	@account = Account.where(username: params[:username] ).where(password: params[:password] )
+
 	if @account[0] != nil
+
 		@session = (session[:id] = @account[0].id) 
 		redirect "/#{@account[0].brand}"
 	else
