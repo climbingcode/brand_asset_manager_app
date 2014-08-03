@@ -45,6 +45,18 @@ h1, h2, h3, h4, h5 {
   .nav-buttons button {
     display: inline !important; }
 
+#search-input {
+  width: 250px;
+}
+
+#signIn{
+  margin-top: 200px;
+}
+
+#signIn .modal-body{
+  height: 200px;
+}
+
 .signed-in-buttons {
   list-style-type: none;
   display: inline; }
