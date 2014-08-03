@@ -1,5 +1,6 @@
 # Homepage (Root path)
 require_relative '../app/helpers/application_helpers.rb'
+require 'mini_magick'
 
 helpers do 
 
@@ -9,8 +10,8 @@ end
 get '/' do
 	@user = nil
 	@photo = nil
-	@home_logos = Upload.all.pluck(:file)
-	@logos = Upload.all
+	@home_logos = Upload.all
+	@logo = @home_logos.sample.file.file
 	
 	erb :index
 end
@@ -31,6 +32,8 @@ post '/logout' do
 	session.clear
 	redirect '/'
 end
+
+
 
 post '/pdf/:name' do
 	@user = Account.find_by(brand: params[:name])		
@@ -132,23 +135,52 @@ end
 
 end
 
+post '/dashboard' do
+	session.clear
+	redirect '/'
+end
+
 
 get '/:name' do
 	@user = Account.find_by(brand: params[:name])
-	@session = session[:id] == @user.id
 
-		
+	@brand = @user
+	
+
+	if @user != nil
+		@session = session[:id] == @user.id
+	else
+		redirect '/'
+	end
+	
  # FIRST THREE PHOTO VARIABLES 
 	if @session != nil
 
 		if @user.uploads[0] != nil 
 			@logo1 = @user.uploads[0].file
+				begin
+					@jpeg1 = MiniMagick::Image.open("#{@logo1.path}") 
+					@jpeg1.write "convert/logo1.jpg"
+					@png1 = MiniMagick::Image.open("#{@logo1.path}") 
+					@png1.write "convert/logo1.png"
+				rescue
+			end
 		end
 		if @user.uploads[1] != nil 
 			@logo2 = @user.uploads[1].file
+				begin 
+					@jpeg2 = MiniMagick::Image.open("#{@logo2.path}") 
+					@jpeg2.write "convert/logo2.jpg"
+				rescue 
+			end
 		end
 		if @user.uploads[2] != nil 
 			@logo3 = @user.uploads[2].file
+				begin
+					@jpeg3 = MiniMagick::Image.open("#{@logo3.path}") 
+					@jpeg3.write "convert/logo3.jpg"
+				rescue 
+			end
 		end	
 
 

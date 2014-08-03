@@ -16,6 +16,7 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'factory_girl'
 gem 'faker'
+gem "mini_magick"
 
 group :development, :test do
   gem 'pry'

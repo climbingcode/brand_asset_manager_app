@@ -12,7 +12,39 @@ class Bampdf < Prawn::Document
 		@account = account
 		@fonts = account.fonts
 		define_grid(:columns => 10, :rows => 10, :gutter => 10)  
-		
+	
+
+
+ bounding_box([bounds.left, bounds.top], :width => bounds.width) do
+        cell :background_color => 'EEEEEE',
+             :width => bounds.width,
+             :height => 70,
+             :align => :center,
+             :text_color => "001B76",
+             :borders => [:bottom],
+             :border_width => 2,
+             :border_color => '00FF00',
+             :padding => 12
+      end
+
+  bounding_box [bounds.left, bounds.bottom + 50], :width  => bounds.width do
+        cell :content => 'This contains copyrighted material',
+             :background_color => '333333',
+             :width => bounds.width,
+             :height => 50,
+             :align => :center,
+             :text_color => "FFFFFF",
+             :borders => [:top],
+             :border_width => 2,
+             :border_color => '00FF00',
+             :padding => 12
+      end
+
+ 	grid([1,0], [8,1]).bounding_box do 
+ 		cell 	:background_color => 'eeeeee',
+ 					:width => 100,
+ 					:height => 595
+ 	end
 
 
 page_count.times do |i|
@@ -31,8 +63,9 @@ page_count.times do |i|
 	end
 
 	grid([0,2], [0,8]).bounding_box do 
-		font_size(60) do
+		font_size(80) do
 			 text_rendering_mode(:fill_stroke) do
+			 	move_down 20
 				text "#{account.brand}'s design specs", :mode => :stroke, :overflow => :shrink_to_fit, :align => :center
 			end
 		end	
@@ -40,7 +73,9 @@ page_count.times do |i|
 
 
 grid([1,0], [4,2]).bounding_box do
+	move_down 20
 	table hex_colors_rows do
+
       row(0).font_style = :bold
       self.header = true
       self.row_colors = @hexcolors
@@ -83,7 +118,8 @@ end
  	end
 		
  	grid([1,3], [1,8]).bounding_box do
-		text "ASSETS", :width => 300, :height => 50, :align => :center, size: 15, style: :bold
+ 		move_down 15
+		text "ASSETS", :width => 300, :height => 50, :align => :center, size: 35, style: :bold
 	end
 
 	if @uploads.count == 1
@@ -137,11 +173,13 @@ end
 	if @account.mission_statement != nil
 
 		grid([4,3], [4,8]).bounding_box do
+		move_down 15
 		text "MISSION STATEMENT", :width => 300, :height => 50, :align => :center, size: 15, style: :bold, :font => "new times roman"
 	end
 		string = @account.mission_statement
 
-	 	grid([5,3], [5,7]).bounding_box do
+	 	grid([4,3], [4,8]).bounding_box do
+	 		move_down 30
 			y_position = cursor - 10
 			[:center].each_with_index do |mode, i|
 	 		text_box string, :at => [i * 600, y_position],
@@ -159,15 +197,16 @@ end
 	if @account.mission_statement != nil 
 		string = @account.story
 
-		grid([6,3], [6,8]).bounding_box do
-			text "STORY", :width => 300, :height => 50, :align => :center, size: 15, style: :bold
+		grid([6,2], [6,8]).bounding_box do
+			text "STORY", :width => 400, :height => 50, :align => :center, size: 15, style: :bold
 		end
 
-		grid([7,3], [7,8]).bounding_box do
+		grid([6,2], [6,9]).bounding_box do
+		move_down 20
 		y_position = cursor - 20
 		[:center].each_with_index do |mode, i|
 		text_box string, :at => [i * 600, y_position],
-		:width => 300, :height => 200, :align => :center
+		:width => 400, :height => 200, :align => :center
 			end
 		end
 	end

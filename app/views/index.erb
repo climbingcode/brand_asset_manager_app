@@ -56,12 +56,9 @@
 
 
         <ul class="nav-buttons nav navbar-right">
-<% if @session == nil %>
-          <li class="hidden-in-session">
-            <button class="btn sign-up-btn bam-button nav-button hidden-in-session " data-toggle="modal" data-target="#myModal">
-            Sign Up
-            </button>
-          </li>
+
+<% if @session == nil || @session == false  %>
+          
 
           <li class="hidden-in-session">
               <form action='/signin' method='post' class="navbar-form " role="form">
@@ -79,7 +76,7 @@
 <% end %>
 <% if @session == true %>
           <li class="hidden-to-public">
-            <!-- <a href="/account/<%=@user.id%>"> -->
+            <a href="/account/<%=@user.id%>">
               <button class="bam-button nav-button">Dashboard</button>
             </a>
           </li>
@@ -92,17 +89,23 @@
 <% end %>
 
           <li>
-          <button class="bam-button search-button nav-button">
-            <span class="glyphicon glyphicon-search"></span>
-         </button>
+            <button class="bam-button nav-button " data-toggle="modal" data-target="#myModal">
+            Sign Up
+            </button>
+
+          <li>
+            <button class="bam-button search-button hidden-in-session" data-toggle="modal" data-target="#search_modal">
+            <span class="glyphicon glyphicon-search"></span> 
+            </button>
+          </li>
+
+          </li>
+            
           </li>
         </ul>
 
         </div>
-
-                </div>
-
-      <!--/.navbar-collapse -->
+      </div>
    </div>
 
 <div class="container page">
@@ -120,11 +123,29 @@
         <% if @logo1 != nil %>
           <img src="<%= @logo1.url %>" class="img-responsive"/>
         <% end %>
+
+        <section class="file-list">
+        <hr/>
+        <p>Download Your Assets</p>
+        <ul class="download-links">
+        <%if @logo1 != nil%><li><a href="<%= @logo1.url %>" download="convert/logo1.png">Download As Png</a></li>
+          <hr/>
+          <li><a href="<%= @logo1.url %>" download="convert/logo1.jpg">Download As Jpeg</a></li>
+        <% end %>
       </div>
 
       <div class="item">
         <% if @logo2 != nil %>
-          <img src="<%= @logo2.url %>" class="img-responsive"/>
+          <img src="<%= @logo2.url %>" class="img-responsive"/> 
+        <% end %>
+          <section class="file-list">
+        <hr/>
+        <p>Download Your Assets</p>
+        <ul class="download-links">
+        <%if @logo2 != nil%>
+          <li><a href="<%= @logo2.url %>" download="convert/logo2.png">Download As Png</a></li>
+          <hr/>
+          <li><a href="<%= @logo2.url %>" download="convert/logo2.jpg">Download As Jpeg</a></li>
         <% end %>
       </div>
 
@@ -132,21 +153,17 @@
         <% if @logo3 != nil %>
           <img src="<%= @logo3.url %>" class="img-responsive"/>
         <% end %>
+            <section class="file-list">
+        <hr/>
+        <p>Download Your Assets</p>
+        <ul class="download-links">
+        <%if @logo3!= nil%>
+          <li><a href="<%= @logo3.url %>" download="convert/logo3.png">Download As Png</a></li>
+          <hr/>
+          <li><a href="<%= @logo3.url %>" download="convert/logo3.jpg">Download As Jpeg</a></li>
+        <% end %>
       </div>
-
     </div><!--logo-slider-->
-
-
-
-  <section class="file-list">
-  <hr/>
-    <p>Download Your Assets</p>
-    <ul class="download-links">
-    <%if @logo1 != nil%>
-    <li><a href="<%= @logo1.url %>" download="<%= @logo1%>" ><%= @logo1%></a></li>
-    <hr/>
-        <li><a><%= @logo1.url %></a></li>
-    <%end%>
 
 <% if @session != nil%>
     <hr/>
@@ -344,6 +361,92 @@ $( document ).ready(function() {
             </div>
           </div>
             </form>
+<!-- <<<<<<< HEAD
+
+        <div>
+
+        </div>
+=======
+>>>>>>> c7b18af7c510c4a3d2e0796253bd24ac8d55a19d -->
+        </form>
+    </div>  
+
+<!--     <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div> -->
+
+      </div><!--modalbody-->
+    </div>
+  </div>
+
+
+<div class="modal fade" id="search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span class="x-out" aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create An Account</h4>
+      </div><!--modal-header-->
+
+        <div class="modal-body">
+          <form action='/signup' method='post'>
+
+
+        <div class="row form-row">
+
+          <div class="row input-row">
+            <div class="col-sm-12">
+              <span>
+                <input class="basic-slide" id="brand" type="text" name="brand" placeholder="What is your brand?" />
+                <label for="brand">Brand</label>
+              </span>
+            </div>
+          </div>
+
+            <div class="row input-row">
+              <div class="col-sm-12">
+                <span>
+                  <input class="basic-slide" id="email" type="text" name="email" placeholder="We won't spam you!" />
+                  <label for="email">Email</label>
+                </span>
+              </div>
+            </div>
+
+          <div class="row input-row">
+            <div class="col-sm-12">
+            <span>
+              <input class="basic-slide" id="username" type="text" name="username" placeholder="What Should We Call You?" />
+              <label for="username">Username</label>
+            </span>
+            </div>
+          </div>
+
+          <div class="row input-row">
+            <div class="col-sm-12">
+            <span>
+              <input class="basic-slide" id="password" name="password" type="text" placeholder="Don't Forget!" />
+              <label for="password">Password</label>
+            </span>
+            </div>
+          </div>
+
+          <div class="row input-row">
+            <div class="col-sm-12">
+              <span>
+                <input class="basic-slide" id="website" type="text" placeholder="Website" />
+                <label for="website">Website</label>
+              </span>
+            </div>
+          </div>
+
+          <div>
+             <button type="submit" class="sign-up-button bam-button">Register</button>
+
+            </div>
+          </div>
+        </form>
+      </div>
 
             
 
@@ -367,17 +470,10 @@ $( document ).ready(function() {
     </div>
   </div>
 
+
 </div>
 
 <div class="container">
-
-
-
-
-
-
-
-
 
 <section class="row typography">
   
@@ -422,9 +518,7 @@ $( document ).ready(function() {
               <div id="owl-demo" class="owl-carousel">
 
 
-            <!--     <div class="item">
-                  <img src="#{ @logos.sample.url }" class="img-responsive">
-                </div> -->
+
 
                 <div class="item">
                   <img src="img/hawthorne_logo.png" class="img-responsive">
