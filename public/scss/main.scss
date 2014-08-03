@@ -93,12 +93,13 @@ h1, h2, h3, h4, h5{
   height: 34px;
 }
 
-
-
 /* ==========================================================================
  NAVIGATION
    ========================================================================== */
-
+.navbar-brand{
+  text-transform: uppercase;
+  font-weight: 400;
+}
 
 .navbar{
   background-color: $dark-grey;
