@@ -5,11 +5,23 @@
   <div class="navbar navbar-fixed-top" role="navigation">
 <%else %>
    <div class="navbar navbar-fixed-top" role="navigation">
+
 <% end %>
 
   <div class="container">
 
       <div class="navbar-header">
+
+      
+
+
+      <!-- Modal -->
+
+
+
+
+
+
 
         <a class="navbar-brand" href="#">
          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 350 350" enable-background="new 0 0 350 350" xml:space="preserve">
@@ -53,34 +65,33 @@
     <%if @session == false || @session == nil %>
         <div class="navbar-collapse collapse">
 
-          <form class="pull-right">
-          <input type="text" placeholder="Search">
-          </form>
-          <form action='/signin' method='post' class="navbar-form navbar-right" role="form">
+        <div class="col-sm-6 navbar-right">
 
+
+          <form action='/signin' method='post' class="navbar-form " role="form">
               <div class="form-group">
                 <input type="text" name="username" placeholder="Username" class="form-control">
               </div>
               <div class="form-group">
                 <input type="password" name="password"  placeholder="Password" class="form-control">
               </div>
-
-                <button type="submit" class="sign-in-button bam-button">Sign in</button>
-
-              
-
-            <% if @account && @account.errors.any? %>
-          <div>
-            <strong>Sorry dude, try again:</strong>
-            <ul>
-              <% @account.errors.full_messages.each do |error| %>
-            <li><%= error %></li>
-              <% end %>
-            </ul>
-            </div>
-          <% end %>
-
+              <button type="submit" class="sign-in-button bam-button">Sign in</button>
+<!--////////////////////////////////////////////-->
+<% if @account && @account.errors.any? %>
+<div>
+<strong>Sorry dude, try again:</strong>
+<ul>
+<% @account.errors.full_messages.each do |error| %>
+<li><%= error %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+<!--////////////////////////////////////////////-->
           </form>
+
+        <button style="display: inline;" class="btn search-button bam-button" data-toggle="modal" data-target="#searchModal">Search</button>
+        </div>
         </div>
 <% elsif @session == true %>  
 <% end %>
@@ -266,6 +277,22 @@
     <button class="btn sign-up-btn bam-button" data-toggle="modal" data-target="#myModal">
     Sign Up
     </button>
+
+
+          <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                 <button type="button" class="close" data-dismiss="modal"><span class="x-out" aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <form action="/search" method="post">
+                  <input type="text" placeholder="Search" name="brand" class="form-control search-bar">
+                  <input type="submit" class="bam-button">
+                </form>
+                </div><!--modalbody-->
+              </div>
+            </div>
+          </div>
+
     </div>
   <% end %>
  

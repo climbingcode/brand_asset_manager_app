@@ -30,6 +30,14 @@ post '/logout' do
 	redirect '/'
 end
 
+post '/search' do
+
+	@searched = Account.where("brand LIKE ?'%'", params[:brand])
+
+	redirect "/#{@searched.first.brand}"
+
+end
+
 post '/pdf/:name' do
 	@user = Account.find_by(brand: params[:name])		
 

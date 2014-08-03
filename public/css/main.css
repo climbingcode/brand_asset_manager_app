@@ -42,6 +42,18 @@ h1, h2, h3, h4, h5 {
   .client-header h1 {
     color: #999; }
 
+.search-button {
+  height: 34px; }
+
+#searchModal .modal-body {
+  height: 200px; }
+#searchModal .search-bar {
+  background-color: #999;
+  font-size: 1.5em; }
+#searchModal .modal-header {
+  height: 80px;
+  background-color: #dadada; }
+
 .client-row {
   padding-top: 0px; }
 
@@ -76,6 +88,8 @@ h1, h2, h3, h4, h5 {
 
 .sign-in-button {
   display: inline !important;
+  padding-left: 10px;
+  padding-right: 10px;
   height: 34px; }
 
 /* ==========================================================================
