@@ -56,7 +56,8 @@
 
 
         <ul class="nav-buttons nav navbar-right">
-<% if @session == nil %>
+
+<% if @session == nil || @session == false  %>
           <li class="hidden-in-session">
             <button class="btn sign-up-btn bam-button nav-button hidden-in-session " data-toggle="modal" data-target="#myModal">
             Sign Up
@@ -79,7 +80,7 @@
 <% end %>
 <% if @session == true %>
           <li class="hidden-to-public">
-            <!-- <a href="/account/<%=@user.id%>"> -->
+            <a href="/account/<%=@user.id%>">
               <button class="bam-button nav-button">Dashboard</button>
             </a>
           </li>
@@ -415,7 +416,8 @@ $( document ).ready(function() {
 
 
                 <div class="item">
-                  <img src="#{ @logos.sample.url }" class="img-responsive">
+                
+                  <img src="#{ app/public/app/public/my/upload/directory/Colonial_Pacific_Logo2.png  }" class="img-responsive">
                 </div>
 
                 <div class="item">

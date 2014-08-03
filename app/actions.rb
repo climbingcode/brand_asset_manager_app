@@ -9,8 +9,8 @@ end
 get '/' do
 	@user = nil
 	@photo = nil
-	@home_logos = Upload.all.pluck(:file)
-	@logos = Upload.all
+	@home_logos = Upload.all
+	@logo = @home_logos.sample.file.file
 	
 	erb :index
 end
@@ -31,6 +31,8 @@ post '/logout' do
 	session.clear
 	redirect '/'
 end
+
+
 
 post '/pdf/:name' do
 	@user = Account.find_by(brand: params[:name])		
@@ -130,6 +132,11 @@ end
 
 	redirect "/#{Account.find(params[:id]).brand}"
 
+end
+
+post '/dashboard' do
+	session.clear
+	redirect '/'
 end
 
 
