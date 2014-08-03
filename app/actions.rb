@@ -33,6 +33,12 @@ post '/logout' do
 	redirect '/'
 end
 
+post '/search' do
+ 	search  = Account.where("brand like ?", params[:input])
+ 	@brand = search[0].brand
+ 	redirect "/#{@brand}"
+
+end
 
 
 post '/pdf/:name' do
