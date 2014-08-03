@@ -118,7 +118,7 @@
 
 
 
-<%if @session == true %>
+<%if @user != nil %>
 <div class="in-session-page">
 
 <div class="col-sm-3">
@@ -379,36 +379,6 @@ $( document ).ready(function() {
 </div>
 
 <div class="container">
-
-
-
-
-
-<section class="logo-row row">
-  <% if @session != nil%>
-  <div class="col-sm-4">
-  <%  if @logo2 != nil  %>
-
-    <img src="<%= @logo2.url %>" class="img-responsive"/>
-  <% end %>
-  </div>
-
-  <div class="col-sm-4">
-  <% if @logo1 != nil %>
-    <img src="<%= @logo1.url %>" class="img-responsive"/>
-  <% end %>
-  </div>
-
-  <div class="col-sm-4">
-  <%  if @logo3  %>
-    <img src="<%= @logo3.url %>" class="img-responsive"/>
-  <% end %>
-  </div>
-  <% end %>
-</section>
-
-
-
 
 
 <section class="row typography">

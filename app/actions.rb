@@ -135,8 +135,15 @@ end
 
 get '/:name' do
 	@user = Account.find_by(brand: params[:name])
-	@session = session[:id] == @user.id
 
+	@brand = @user
+	
+	if @user != nil
+		@session = session[:id] == @user.id
+	else
+		redirect '/'
+	end
+	
 		
  # FIRST THREE PHOTO VARIABLES 
 	if @session != nil
