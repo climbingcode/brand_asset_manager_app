@@ -50,13 +50,21 @@
         <% end %>
         
       </div>
-    <%if @session == false || @session == nil %>
-        <div class="navbar-collapse collapse">
 
-          <form class="pull-right">
-          <input type="text" placeholder="Search">
-          </form>
-          <form action='/signin' method='post' class="navbar-form navbar-right" role="form">
+
+<div class="navbar-collapse collapse">
+
+
+        <ul class="nav-buttons nav navbar-right">
+<% if @session == nil %>
+          <li class="hidden-in-session">
+            <button class="btn sign-up-btn bam-button nav-button hidden-in-session " data-toggle="modal" data-target="#myModal">
+            Sign Up
+            </button>
+          </li>
+
+          <li class="hidden-in-session">
+              <form action='/signin' method='post' class="navbar-form " role="form">
 
               <div class="form-group">
                 <input type="text" name="username" placeholder="Username" class="form-control">
@@ -65,53 +73,36 @@
                 <input type="password" name="password"  placeholder="Password" class="form-control">
               </div>
 
-                <button type="submit" class="sign-in-button bam-button">Sign in</button>
+              <button type="submit" class="sign-in-button bam-button nav-button ">Sign in</button>
+            </form>
+          </li>
+<% end %>
+<% if @session == true %>
+          <li class="hidden-to-public">
+            <!-- <a href="/account/<%=@user.id%>"> -->
+              <button class="bam-button nav-button">Dashboard</button>
+            </a>
+          </li>
 
-              
-
-            <% if @account && @account.errors.any? %>
-          <div>
-            <strong>Sorry dude, try again:</strong>
-            <ul>
-              <% @account.errors.full_messages.each do |error| %>
-            <li><%= error %></li>
-              <% end %>
-            </ul>
-            </div>
-          <% end %>
-
-          </form>
-        </div>
-<% elsif @session == true %>  
+          <li class="hidden-to-public">
+            <form class="log_out"  action="/logout" method="post">
+              <button class="btn bam-button nav-button">Logout</button>
+            </form>
+          </li>
 <% end %>
 
-<%if @session == true %>
-
-
-                <a href="/account/<%=@user.id%>">
-                  Dashboard
-                </a>
-
-
-
-        
-        <div class="pull-right">
-
-          <form class="log_out"  action="/logout" method="post">
-            <ul class="log-out-buttons">
-              <li>
-                <button class="btn bam-button">Logout</button>
-              </li>
-              <li>
-
-              </li>
-            </ul>
-          </form>
+          <li>
+          <button class="bam-button search-button nav-button">
+            <span class="glyphicon glyphicon-search"></span>
+         </button>
+          </li>
+        </ul>
 
         </div>
-<% end %>
+
+                </div>
+
       <!--/.navbar-collapse -->
-   </div>
    </div>
 
 <div class="container page">
@@ -156,7 +147,14 @@
     <hr/>
         <li><a><%= @logo1.url %></a></li>
     <%end%>
+
+<% if @session != nil%>
     <hr/>
+    <form action='/pdf/<%=@user.brand%>' method='post'>   
+      <button type='submit'>BAM</button>
+    </form>
+<% end %>
+
     </ul>
   </section>
 
@@ -277,13 +275,6 @@ $( document ).ready(function() {
 
 <!-- Button trigger modal -->
 
-  <% if @session == false || @session == nil %>
-    <div class="call-to-action">
-    <button class="btn sign-up-btn bam-button" data-toggle="modal" data-target="#myModal">
-    Sign Up
-    </button>
-    </div>
-  <% end %>
  
 
 <!-- Modal -->
@@ -380,7 +371,6 @@ $( document ).ready(function() {
 
 <div class="container">
 
-
 <section class="row typography">
   
   <% if @hexcolor3 != nil %>
@@ -401,13 +391,6 @@ $( document ).ready(function() {
 </div>
 <% end %>
 
-<% if @session != nil%>
-  <section>
-    <form action='/pdf/<%=@user.brand%>' method='post'>   
-      <button type='submit'>BAM</button>
-    </form>
-  </section>
-<% end %>
 
 </section>
 

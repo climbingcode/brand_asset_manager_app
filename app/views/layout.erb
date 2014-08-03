@@ -37,6 +37,20 @@
         <script src="/javascript/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="/javascript/ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
+        <%if @session == true %>
+        <style type="text/css">
+          .hidden-in-session{
+            display: none!important;
+          }
+        </style>
+        <% else %>
+        <style type="text/css">
+          .hidden-to-public{
+           display: none!important;
+          }
+        </style>
+        <% end %>
+
     </head>
 
 <body>
