@@ -12,7 +12,7 @@ class Bampdf < Prawn::Document
 		@account = account
 		@fonts = account.fonts
 		define_grid(:columns => 10, :rows => 10, :gutter => 10)  
-	
+		
 
 
 page_count.times do |i|
@@ -111,7 +111,7 @@ end
 		end
 	end
 	
-	if @uploads.count == 3
+	if @uploads.count >= 3
 		grid([2,2], [3,4] ).bounding_box do
 					begin 
 						image file_path1, :height => 100, :width => 100

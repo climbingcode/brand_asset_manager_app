@@ -10,6 +10,8 @@ get '/' do
 	@user = nil
 	@photo = nil
 	@home_logos = Upload.all.pluck(:file)
+	@logos = Upload.all
+	
 	erb :index
 end
 

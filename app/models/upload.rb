@@ -2,6 +2,7 @@ class Upload < ActiveRecord::Base
 
 	belongs_to :account
 
+  attr_accessor :file
 	mount_uploader :file, FileUploader
 
 

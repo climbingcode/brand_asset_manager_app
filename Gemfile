@@ -14,6 +14,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
 gem 'prawn'
 gem 'prawn-table'
+gem 'factory_girl'
+gem 'faker'
 
 group :development, :test do
   gem 'pry'
