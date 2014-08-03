@@ -121,11 +121,29 @@
         <% if @logo1 != nil %>
           <img src="<%= @logo1.url %>" class="img-responsive"/>
         <% end %>
+
+        <section class="file-list">
+        <hr/>
+        <p>Download Your Assets</p>
+        <ul class="download-links">
+        <%if @logo1 != nil%><li><a href="<%= @logo1.url %>" download="convert/logo1.png">Download As Png</a></li>
+          <hr/>
+          <li><a href="<%= @logo1.url %>" download="convert/logo1.jpg">Download As Jpeg</a></li>
+        <% end %>
       </div>
 
       <div class="item">
         <% if @logo2 != nil %>
-          <img src="<%= @logo2.url %>" class="img-responsive"/>
+          <img src="<%= @logo2.url %>" class="img-responsive"/> 
+        <% end %>
+          <section class="file-list">
+        <hr/>
+        <p>Download Your Assets</p>
+        <ul class="download-links">
+        <%if @logo2 != nil%>
+          <li><a href="<%= @logo2.url %>" download="convert/logo2.png">Download As Png</a></li>
+          <hr/>
+          <li><a href="<%= @logo2.url %>" download="convert/logo2.jpg">Download As Jpeg</a></li>
         <% end %>
       </div>
 
@@ -133,21 +151,17 @@
         <% if @logo3 != nil %>
           <img src="<%= @logo3.url %>" class="img-responsive"/>
         <% end %>
+            <section class="file-list">
+        <hr/>
+        <p>Download Your Assets</p>
+        <ul class="download-links">
+        <%if @logo3!= nil%>
+          <li><a href="<%= @logo3.url %>" download="convert/logo3.png">Download As Png</a></li>
+          <hr/>
+          <li><a href="<%= @logo3.url %>" download="convert/logo3.jpg">Download As Jpeg</a></li>
+        <% end %>
       </div>
-
     </div><!--logo-slider-->
-
-
-
-  <section class="file-list">
-  <hr/>
-    <p>Download Your Assets</p>
-    <ul class="download-links">
-    <%if @logo1 != nil%>
-    <li><a href="<%= @logo1.url %>" download="<%= @logo1%>" ><%= @logo1%></a></li>
-    <hr/>
-        <li><a><%= @logo1.url %></a></li>
-    <%end%>
 
 <% if @session != nil%>
     <hr/>
