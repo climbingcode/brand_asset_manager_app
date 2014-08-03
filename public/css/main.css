@@ -1,3 +1,6 @@
+form {
+  display: inline !important; }
+
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
@@ -25,11 +28,20 @@ h1, h2, h3, h4, h5 {
   .call-to-action .btn {
     font-size: 1.5em; }
 
-.log-out-buttons {
+.nav {
+  margin-top: 7.5px; }
+
+.nav-buttons {
   display: inline !important;
   list-style-type: none; }
-  .log-out-buttons li {
-    display: inline; }
+  .nav-buttons li {
+    display: inline !important; }
+  .nav-buttons button {
+    display: inline !important; }
+
+.signed-in-buttons {
+  list-style-type: none;
+  display: inline; }
 
 .dashboard-link {
   float: right;
@@ -51,6 +63,9 @@ h1, h2, h3, h4, h5 {
 
 .in-session-page {
   padding-top: 45px; }
+
+.search-button {
+  height: 34px; }
 
 /* ==========================================================================
  NAVIGATION

@@ -2,6 +2,10 @@ $primary-color: #13a89e;
 $dark-grey: #666;
 
 
+
+
+form  {display:inline!important;}
+
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
@@ -36,12 +40,23 @@ h1, h2, h3, h4, h5{
   }
 }
 
-.log-out-buttons {
+.nav{
+  margin-top: 7.5px;
+}
+
+.nav-buttons {
   display: inline!important;
   list-style-type: none;
   li{
-    display: inline;
+    display: inline!important;
   }
+  button{
+    display: inline!important;
+  }
+}
+.signed-in-buttons{
+  list-style-type: none;
+  display: inline;
 }
 
 .dashboard-link{
@@ -72,6 +87,10 @@ h1, h2, h3, h4, h5{
 .in-session-page{
   padding-top: 45px;
 
+}
+
+.search-button{
+  height: 34px;
 }
 
 
