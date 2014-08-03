@@ -1,24 +1,21 @@
 form {
   display: inline !important; }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
 body {
-  background-color: #999; }
+  background-color: #fff; }
+
+h1, h2, h3, h4, h5 {
+  color: #666666; }
 
 .page {
   background-color: #dadada;
   box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.1); }
 
 * {
-  font-family: 'Proxima-nova'; }
+  font-family: "Proxima-nova"; }
 
 *:focus {
   outline: 0 !important; }
-
-h1, h2, h3, h4, h5 {
-  color: #666666; }
 
 .call-to-action {
   background-color: #666666;
@@ -31,12 +28,6 @@ h1, h2, h3, h4, h5 {
 .nav {
   margin-top: 7.5px; }
 
-.navbar-invalid {
-  color: #13a89e; 
-  font-size: 30px;
-  float: left;
-  margin-left: 250px; ;
-}
 .nav-buttons {
   display: inline !important;
   list-style-type: none; }
@@ -59,6 +50,10 @@ h1, h2, h3, h4, h5 {
   text-align: center; }
   .client-header h1 {
     color: #999; }
+
+#typography h1 {
+  margin-top: 30px;
+  margin-bottom: 30px; }
 
 .client-row {
   padding-top: 0px; }
@@ -94,7 +89,7 @@ h1, h2, h3, h4, h5 {
   background-color: #7BFFD9; }
 
 .navbar-brand {
-  color: #7BFFD9; }
+  color: #fff; }
 
 .navbar-brand:hover {
   color: #fff; }
@@ -337,7 +332,7 @@ select > .alternate-gothic {
   display: block; }
 
 .client-row {
-  background-color: #8f8f8f;
+  background-color: #fff;
   padding-bottom: 45px; }
 
 /*===================================================
@@ -357,10 +352,6 @@ MODAL
 
 .modal-title {
   color: #fff; }
-
-.invalid {
-  color: #13a89e;
-}
 
 .modal-footer {
   margin-top: 0px; }
@@ -480,4 +471,5 @@ CLIENT CAROUSEL
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: transparent;
+  color: #666666; }

@@ -1,33 +1,25 @@
 $primary-color: #13a89e;
 $dark-grey: #666;
+$light-grey: #999;
 
-
-
+$font-stack:  'Proxima-nova';
 
 form  {display:inline!important;}
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+body{background-color: #fff;}
 
-body{
-  background-color: #999;
-}
+h1, h2, h3, h4, h5{color: $dark-grey;}
+
 .page{
   background-color: #dadada;
   box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.1);
 }
-*{
-  font-family: 'Proxima-nova';
-}
 
-*:focus {
-    outline: 0!important;
-}
+*{font-family: $font-stack;}
 
-h1, h2, h3, h4, h5{
-  color: $dark-grey;
-}
+*:focus {outline: 0!important;}
+
+//////////////////////////////// MAIN STYLES //////////////////
 
 .call-to-action{
   background-color: $dark-grey;
@@ -47,12 +39,13 @@ h1, h2, h3, h4, h5{
 .nav-buttons {
   display: inline!important;
   list-style-type: none;
-  li{
+  
+    li{ display: inline!important;
+    }
+
+    button{
     display: inline!important;
-  }
-  button{
-    display: inline!important;
-  }
+    }
 }
 .signed-in-buttons{
   list-style-type: none;
@@ -72,6 +65,16 @@ h1, h2, h3, h4, h5{
   h1{
     color: #999;
   }
+}
+
+// .page{
+//   padding-bottom: 45px;
+// }
+
+#typography h1{
+  margin-top: 30px;
+  margin-bottom: 30px;
+
 }
 
 .client-row{
@@ -117,7 +120,7 @@ h1, h2, h3, h4, h5{
 }
 
 .navbar-brand{
-  color: #7BFFD9;
+  color: #fff;
 }
 .navbar-brand:hover{
   color: #fff;
@@ -417,7 +420,7 @@ select > .alternate-gothic{
 }
 
 .client-row{
-  background-color: #8f8f8f;
+  background-color: #fff;
   padding-bottom: 45px;
 }
 
@@ -698,4 +701,5 @@ CLIENT CAROUSEL
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  color: $dark-grey;
 }
