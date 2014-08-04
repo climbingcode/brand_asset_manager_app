@@ -70,12 +70,30 @@
   </section>
 
 </div>
+
         <h1 class="brandname-header"><%=Account.find(@user).brand.upcase%></h1>
         <hr/>
 
       <div class="color-row">
 
         <h2 id="colors">Colors</h2>
+
+// <script>
+// function copyToClipboard(text) {
+//     window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+// }
+// $( document ).ready(function() {
+//     $('.one').click(function() {
+//     copyToClipboard("#<%= @hexcolor1 %>")
+//     });
+//       $('.two').click(function() {
+//     copyToClipboard("#<%= @hexcolor2 %>")
+//     });
+//         $('.three').click(function() {
+//     copyToClipboard("#<%= @hexcolor3 %>")
+//     });
+// });
+// </script>
 
       
         <div  class="col-sm-4 swatch" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor1 %>;">
