@@ -11,12 +11,12 @@ get '/' do
 	@user = nil
 	@photo = nil
 	@home_logos = Upload.all
-	@logo = @home_logos.sample.file.file
 	
 	erb :index
 end
 
 get '/error' do
+	@user = nil
 	erb :error
 end
 

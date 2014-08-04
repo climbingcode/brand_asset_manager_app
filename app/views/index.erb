@@ -37,7 +37,6 @@
         <ul class="download-links">
         <%if @logo2 != nil%>
           <li><a href="<%= @logo2.url %>" download="convert/logo2.png">Download As PNG</a></li>
-          <hr/>
           <li><a href="<%= @logo2.url %>" download="convert/logo2.jpg">Download As Jpeg</a></li>
 
         <% end %>
@@ -53,7 +52,6 @@
         <ul class="download-links">
         <%if @logo3!= nil%>
           <li><a href="<%= @logo3.url %>" download="convert/logo3.png">Download As PNG</a></li>
-          <hr/>
           <li><a href="<%= @logo3.url %>" download="convert/logo3.jpg">Download As JPEG</a></li>
         <% end %>
       </div>
@@ -62,7 +60,7 @@
 <% if @session != nil%>
     <hr/>
     <form action='/pdf/<%=@user.brand%>' method='post'>   
-      <button type='submit' class="bam-button">Export</button>
+      <button type='submit' class="bam-button export-button">Export</button>
     </form>
 <% end %>
 
@@ -79,9 +77,11 @@
         <h2 id="colors">Colors</h2>
 
       
+
         <div  class="col-sm-4 swatch" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor1 %>;">
           <h2 class="one hex-color-text">#<%= @hexcolor1 %></h2>
         </div>
+      
 
         <div class="col-sm-3 swatch " style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor2 %>;">
           <h2 class="two hex-color-text">#<%= @hexcolor2 %></h2>
@@ -98,7 +98,7 @@
         <section class="row typography-row">
         
   
-  <% if @hexcolor3 != nil %>
+
 
   <h2 id="typography">Typography</h2>
   <hr/>
@@ -108,31 +108,36 @@
       <li><h3 >Body: <span style="font-family:'<%= @body %>';"><%= @body %></span></h3></li>
     </ul>
 
-    <div class="copy-row">
 
-    <h2 id="copy-row">Brand Copy</h2>
+    </section>
+
+
+    <div class="copy-row row container">
+
+    <h2>Mission Statement</h2>
     <hr/>
 
-    <h2><%= @mission %></h2>
+    <p><%= @mission %></p>
 
     
     
    
-    <% end %>
+   
 
-<% if @hexcolor1 != nil %>
+
 <div class="col-sm-6 body-box" >
 
-  <h2><%= @story %></h2>
+  <h2>About Us</h2>
+  <hr/>
+  <p><%= @story %></p>
     
-  <h3 style="font-family:'<%= @body %>';"> <%= @body %></h3>
-</div>
-<% end %>
-
 </div>
 
 
-</section>
+</div>
+
+
+
 
 
 </div><!--in-session-page-->
@@ -268,7 +273,7 @@
           <div class="row input-row">
             <div class="col-sm-12">
             <span>
-              <input class="basic-slide" id="password" name="password" type="text" placeholder="Don't Forget!" />
+              <input class="basic-slide" id="password" name="password" type="password" placeholder="Don't Forget!" />
               <label for="password">Password</label>
             </span>
             </div>
@@ -333,25 +338,29 @@
           <div class="modal-body">
           <div class="col-sm-8 col-sm-offset-2">
 
-
-            
           <form action="/signin" method="post">
+
+          <div class="row input-row">
 
             <div class="form-group">
               <span>
-                <input class="basic-slide" type="text" name="username" id="username-sign-in" placeholder="Username" class="form-control" />
+                <input class="basic-slide" type="text" name="username" id="username-sign-in" placeholder="Username"  />
                 <label for="username-sign-in">Username</label>
               </span>
             </div>
+          </div>
+
+          <div class="row input-row">
 
             <div class="form-group">
             <span>
-              <input class="basic-slide" type="password" name="password" id="password-sign-in"  placeholder="Password" class="form-control" />
+              <input class="basic-slide" type="password" name="password" id="password-sign-in"  placeholder="Password"  />
               <label for="password-sign-in">Password</label>
             </span>
             </div>
+          </div>
 
-            <button type="submit" class="sign-in-button bam-button nav-button ">Sign in</button>
+            <button type="submit" class="sign-up-button bam-button nav-button ">Sign in</button>
             </div>
             </form>
       </div>  

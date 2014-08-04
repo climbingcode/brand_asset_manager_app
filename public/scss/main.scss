@@ -29,9 +29,17 @@ ul{
 *:focus {outline: 0!important;}
 
 .logo-column{
-     padding-bottom: 100%;
-    margin-bottom: -100%;
-}
+    min-height: 100%;
+    overflow: hidden;
+  }
+
+  .copy-row{
+    padding: 45px;
+
+    p{
+      font-size: 1.2em;
+    }
+  }
 //////////////////////////////// MAIN STYLES //////////////////
 
 .call-to-action{
@@ -485,10 +493,30 @@ select > .alternate-gothic{
   padding-bottom: 45px;
 }
 
+.error{
+  background-color: #ea5e5e;
+  height: 100px;
+  position: fixed;
+  top: 100px;;
+  z-index: 1000;
+  border-radius: 5px;
+  padding:30px;
+  border: solid red 2px;
+  right: 200px;
+  font-weight: 400;
+
+}
+
 
 /*===================================================
 MODAL
 =====================================================*/
+
+#signIn{
+  .modal-body{
+    height: 300px
+  }
+}
 
 .modal-body, .modal-footer{
   background-color: #dadada;
@@ -515,16 +543,24 @@ MODAL
   margin-right: auto;
   margin-left: auto;
   display: block;
-  background-color: $primary-color;
-  border:none;
+  background-color: transparent;
+  border: solid 2px $primary-color;
   border-radius: 3px;
   color: #fff;
   font-weight: 400;
+}
+.bam-button:hover{
+  background-color: $primary-color;
+}
+
+.export-button{
+  color: $primary-color;
 }
 
 .sign-up-button{
   font-size: 1.5em;
   padding:10px;
+  color: $primary-color;
 }
 
 .bam-button:hover{
@@ -708,7 +744,9 @@ span:nth-child(2) .gate:active {
   left: 0;
   padding: 10px 15px;
   // text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
-  background: $primary-color;
+  background: #efefef;
+  color: $primary-color;
+  border: solid 2px $primary-color;
   transition: all .3s ease-in-out;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -729,6 +767,7 @@ span:nth-child(2) .gate:active {
 .basic-slide:focus + label,
 .basic-slide:active + label {
   transform: translateX(-100%);
+  background: #fff;
 }
 
 
