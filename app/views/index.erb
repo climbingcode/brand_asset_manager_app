@@ -8,7 +8,7 @@
 <%if @user != nil %>
 <div class="in-session-page">
 
-<div class="col-sm-3">
+<div class="col-sm-3 logo-column">
     <div id="logo-carousel" class="owl-carousel ">
                 
       <div class="item">
@@ -22,7 +22,7 @@
         <p>Download Your Assets</p>
         <ul class="download-links">
         <%if @logo1 != nil%><li><a href="<%= @logo1.url %>" download="convert/logo1.png">Download As PNG</a></li>
-          <hr/>
+
           <li><a href="<%= @logo1.url %>" download="convert/logo1.jpg">Download As JPEG</a></li>
         <% end %>
       </div>
@@ -105,9 +105,14 @@
     
     <ul>
       <li><h3 >Headline: <span style="font-family:'<%= @headline %>';"><%= @headline %></span></h3></li>
-      <li><p style="font-family:'<%= @body %>';">Body: <%= @body %></p></li>
-
+      <li><h3 >Body: <span style="font-family:'<%= @body %>';"><%= @body %></span></h3></li>
     </ul>
+
+    <div class="copy-row">
+
+    <h2 id="copy-row">Brand Copy</h2>
+    <hr/>
+
     <h2><%= @mission %></h2>
 
     
@@ -123,6 +128,8 @@
   <h3 style="font-family:'<%= @body %>';"> <%= @body %></h3>
 </div>
 <% end %>
+
+</div>
 
 
 </section>
