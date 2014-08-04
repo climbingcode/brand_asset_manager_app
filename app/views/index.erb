@@ -183,13 +183,13 @@ function copyToClipboard(text) {
 }
 $( document ).ready(function() {
     $('.one').click(function() {
-    copyToClipboard("<%= @hexcolor1 %>")
+    copyToClipboard("#<%= @hexcolor1 %>")
     });
       $('.two').click(function() {
-    copyToClipboard("<%= @hexcolor2 %>")
+    copyToClipboard("#<%= @hexcolor2 %>")
     });
         $('.three').click(function() {
-    copyToClipboard("<%= @hexcolor3 %>")
+    copyToClipboard("#<%= @hexcolor3 %>")
     });
 });
 </script>
