@@ -1,87 +1,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <!-- login form  -->
 
-<%if @hexcolor1 != nil %>  
-  <div class="navbar navbar-fixed-top" role="navigation">
-<%else %>
-   <div class="navbar navbar-fixed-top" role="navigation">
-<% end %>
-
-  <div class="container">
-
-      <div class="navbar-header">
-
-
-
-        <% if @session != nil %>
-          <%=Account.find(@user).brand.upcase%>
-        <% else %>
-        <a class="navbar-brand" href="#">
-         BrandCamp
-        </a>
-
-        <% end %>
-        
-      </div>
-
-
-<div class="navbar-collapse collapse">
-
-
-        <ul class="nav-buttons nav navbar-right">
-
-<% if @session == nil || @session == false  %>
-          <li class="hidden-in-session">
-            <button class="btn sign-up-btn bam-button nav-button hidden-in-session " data-toggle="modal" data-target="#myModal">
-            Sign Up
-            </button>
-          </li>
-
-          <li class="hidden-in-session">
-            <button class="btn sign-up-btn bam-button nav-button hidden-in-session " data-toggle="modal" data-target="#signIn">
-            Already with us
-            </button>
-          </li>
-          
-<% end %>
-<% if @session == true %>
-          <li class="hidden-to-public">
-            <a href="/account/<%=@user.id%>">
-              <button class="bam-button nav-button">Dashboard</button>
-            </a>
-          </li>
-
-          <li class="hidden-to-public">
-            <form class="log_out"  action="/logout" method="post">
-              <button class="btn bam-button nav-button">Logout</button>
-            </form>
-          </li>
-<% end %>
-
-      <li>
-  
-
-    <div class="input-append">
-    <form class="btn search-button nav-button form-search" id="s" action="/search" method='post'>
-        <input type="text" class="form-control input-medium search-query" name="input" id="search-input" placeholder="Search">
-        <button type="submit" class="add-on bam-button"><span class="glyphicon glyphicon-search"></span></button>
-    </form>
-    </div>
-
-          
-    
-            
-         </button>
-          </li>
-        </ul>
-
-        </div>
-
-                </div>
-
-      <!--/.navbar-collapse -->
-   </div>
-
 <div class="container page">
 
 
@@ -102,9 +21,9 @@
         <hr/>
         <p>Download Your Assets</p>
         <ul class="download-links">
-        <%if @logo1 != nil%><li><a href="<%= @logo1.url %>" download="convert/logo1.png">Download As Png</a></li>
+        <%if @logo1 != nil%><li><a href="<%= @logo1.url %>" download="convert/logo1.png">Download As PNG</a></li>
           <hr/>
-          <li><a href="<%= @logo1.url %>" download="convert/logo1.jpg">Download As Jpeg</a></li>
+          <li><a href="<%= @logo1.url %>" download="convert/logo1.jpg">Download As JPEG</a></li>
         <% end %>
       </div>
 
@@ -117,9 +36,10 @@
         <p>Download Your Assets</p>
         <ul class="download-links">
         <%if @logo2 != nil%>
-          <li><a href="<%= @logo2.url %>" download="convert/logo2.png">Download As Png</a></li>
+          <li><a href="<%= @logo2.url %>" download="convert/logo2.png">Download As PNG</a></li>
           <hr/>
           <li><a href="<%= @logo2.url %>" download="convert/logo2.jpg">Download As Jpeg</a></li>
+
         <% end %>
       </div>
 
@@ -132,9 +52,9 @@
         <p>Download Your Assets</p>
         <ul class="download-links">
         <%if @logo3!= nil%>
-          <li><a href="<%= @logo3.url %>" download="convert/logo3.png">Download As Png</a></li>
+          <li><a href="<%= @logo3.url %>" download="convert/logo3.png">Download As PNG</a></li>
           <hr/>
-          <li><a href="<%= @logo3.url %>" download="convert/logo3.jpg">Download As Jpeg</a></li>
+          <li><a href="<%= @logo3.url %>" download="convert/logo3.jpg">Download As JPEG</a></li>
         <% end %>
       </div>
     </div><!--logo-slider-->
@@ -150,45 +70,42 @@
   </section>
 
 </div>
-<script>
-function copyToClipboard(text) {
-    window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
-}
-$( document ).ready(function() {
-    $('.one').click(function() {
-    copyToClipboard("<%= @hexcolor1 %>")
-    });
-      $('.two').click(function() {
-    copyToClipboard("<%= @hexcolor2 %>")
-    });
-        $('.three').click(function() {
-    copyToClipboard("<%= @hexcolor3 %>")
-    });
-});
-</script>
+        <h1 class="brandname-header"><%=Account.find(@user).brand.upcase%></h1>
+        <hr/>
+
+      <div class="color-row">
+
+        <h2 id="colors">Colors</h2>
 
       
-        <div  class="col-sm-4 " style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor1 %>;">
+        <div  class="col-sm-4 swatch" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor1 %>;">
           <h2 class="one hex-color-text">#<%= @hexcolor1 %></h2>
+        </div>
 
-      </div>
-        <div class="col-sm-3 " style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor2 %>;">
+        <div class="col-sm-3 swatch " style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor2 %>;">
           <h2 class="two hex-color-text">#<%= @hexcolor2 %></h2>
         </div>
 
-        <div  class="col-sm-2" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor3 %>;">
+        <div  class="col-sm-2 swatch" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor3 %>;">
           <h2 class="three hex-color-text">#<%= @hexcolor3 %></h2> 
         </div>
 
-        <section class="row typography">
+      </div>
+
+
+
+        <section class="row typography-row">
+        
   
   <% if @hexcolor3 != nil %>
 
-  <h1 id="typography">Typography</h1>
+  <h2 id="typography">Typography</h2>
+  <hr/>
     <div class="col-sm-6 headline-box" >
     <h2><%= @mission %></h2>
+
     
-    <h3 style="font-family:'<%= @body %>';"> <%= @body %></h3>
+    <h3 style="font-family:'<%= @body %>';">Headline: <%= @body %></h3>
     </div>
     <% end %>
 
@@ -402,16 +319,23 @@ $( document ).ready(function() {
 
           <div class="modal-body">
           <div class="col-sm-8 col-sm-offset-2">
+
+
+            
+          <form action="/signin" method="post">
+
             <div class="form-group">
-            <form action="/signin" method="post">
-              <input type="text" name="username" placeholder="Username" class="form-control">
+              <span>
+                <input class="basic-slide" type="text" name="username" id="username-sign-in" placeholder="Username" class="form-control" />
+                <label for="username-sign-in">Username</label>
+              </span>
             </div>
+
             <div class="form-group">
             <span>
-              <input class="basic-slide" type="password" name="password"  placeholder="Password" class="form-control" />
-              <label for="username">Username</label>
+              <input class="basic-slide" type="password" name="password" id="password-sign-in"  placeholder="Password" class="form-control" />
+              <label for="password-sign-in">Password</label>
             </span>
-
             </div>
 
             <button type="submit" class="sign-in-button bam-button nav-button ">Sign in</button>
@@ -432,7 +356,7 @@ $( document ).ready(function() {
 
 
 
-<%if @session == false || @session == nil %>
+<%if @user == nil  %>
 
 <section class="client-row row">
 

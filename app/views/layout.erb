@@ -37,7 +37,9 @@
         <script src="/javascript/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="/javascript/ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
-        <%if @session == true %>
+
+
+<!--         <%if @session == true %>
         <style type="text/css">
           .hidden-in-session{
             display: none!important;
@@ -49,11 +51,79 @@
            display: none!important;
           }
         </style>
-        <% end %>
+        <% end %> -->
 
     </head>
 
 <body>
+
+<%if @hexcolor1 != nil %>  
+  <div class="navbar navbar-fixed-top" role="navigation">
+<%else %>
+   <div class="navbar navbar-fixed-top" role="navigation">
+<% end %>
+
+  <div class="container">
+
+      <div class="navbar-header">
+
+        <% if @session != nil %>
+            <a class="navbar-brand" href=""><%=Account.find(@user).brand.upcase%></a>
+        <% else %>
+        <a class="navbar-brand" href="#">
+         BrandCamp
+        </a>
+        <% end %>
+      </div>
+
+
+<div class="navbar-collapse collapse">
+        <ul class="nav-buttons ">
+<% if @session == nil || @session == false  %>
+          <li class="hidden-in-session">
+            <button class="btn sign-up-btn bam-button nav-button hidden-in-session " data-toggle="modal" data-target="#myModal">
+            Sign Up
+            </button>
+          </li>
+
+          <li class="hidden-in-session">
+            <button class="btn sign-up-btn bam-button nav-button hidden-in-session " data-toggle="modal" data-target="#signIn">
+            Already with us
+            </button>
+          </li>      
+<% end %>
+<% if @session == true %>
+          <li class="hidden-to-public">
+            <a href="/account/<%=@user.id%>">
+              <button class="bam-button nav-button dashboard-button">Dashboard</button>
+            </a>
+          </li>
+
+          <li class="hidden-to-public">
+            <form class="log_out"  action="/logout" method="post">
+              <button class="btn bam-button nav-button">Logout</button>
+            </form>
+          </li>
+<% end %>
+
+      <li>
+        <div class="input-append search-wrapper">
+        <form class=" search-button form-search" id="s" action="/search" method='post'>
+            <input type="text" class="search-input" name="input" id="search-input" placeholder="Search">
+            <button type="submit" class="add-on search-icon"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+        </div>
+      </li>
+
+      </ul>
+
+        </div>
+
+                </div>
+
+      <!--/.navbar-collapse -->
+   </div>
+
 <%= yield %>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
@@ -174,6 +244,22 @@
           <script type="text/javascript">
             $(".pick-a-color").pickAColor();
         </script>
+        <script>
+function copyToClipboard(text) {
+    window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+}
+$( document ).ready(function() {
+    $('.one').click(function() {
+    copyToClipboard("<%= @hexcolor1 %>")
+    });
+      $('.two').click(function() {
+    copyToClipboard("<%= @hexcolor2 %>")
+    });
+        $('.three').click(function() {
+    copyToClipboard("<%= @hexcolor3 %>")
+    });
+});
+</script>
 
 
 

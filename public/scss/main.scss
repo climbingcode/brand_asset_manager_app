@@ -6,9 +6,15 @@ $font-stack:  'Proxima-nova';
 
 form  {display:inline!important;}
 
-body{background-color: #fff;}
+body{background-color: $light-grey;}
 
 h1, h2, h3, h4, h5{color: $dark-grey;}
+
+a{color: $primary-color;}
+
+a:hover{
+  text-decoration: none;
+}
 
 .page{
   background-color: #dadada;
@@ -18,6 +24,7 @@ h1, h2, h3, h4, h5{color: $dark-grey;}
 *{font-family: $font-stack;}
 
 *:focus {outline: 0!important;}
+
 
 //////////////////////////////// MAIN STYLES //////////////////
 
@@ -32,13 +39,20 @@ h1, h2, h3, h4, h5{color: $dark-grey;}
   }
 }
 
-.nav{
-  margin-top: 7.5px;
+.swatch{
+  margin-bottom: 30px;
 }
 
+
+
 .nav-buttons {
+  margin-top: 10px;
   display: inline!important;
+  float: right;
   list-style-type: none;
+
+      ul{ display: inline!important;
+    }
   
     li{ display: inline!important;
     }
@@ -64,6 +78,7 @@ h1, h2, h3, h4, h5{color: $dark-grey;}
 
   h1{
     color: #999;
+
   }
 }
 
@@ -71,8 +86,17 @@ h1, h2, h3, h4, h5{color: $dark-grey;}
 //   padding-bottom: 45px;
 // }
 
+.typography-row{
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.color-row{
+  margin-bottom: 30px;
+}
+
 #typography h1{
-  margin-top: 30px;
+
   margin-bottom: 30px;
 
 }
@@ -93,7 +117,31 @@ h1, h2, h3, h4, h5{color: $dark-grey;}
 }
 
 .search-button{
-  height: 34px;
+  height: 30px;
+}
+
+.search-input{
+  border-radius:  2px  ;
+  border: none;
+  height: 30px;
+  padding-left: 5px;
+
+  margin-right: -5px;
+
+}
+
+
+.search-wrapper{
+  display: inline!important;
+}
+.search-icon{
+  color: $primary-color;
+  display: inline!important;
+  height: 31px;
+  background-color: transparent;
+  border: none;
+  margin-left: -25px;
+
 }
 
 /* ==========================================================================
@@ -151,7 +199,9 @@ h1, h2, h3, h4, h5{color: $dark-grey;}
 /* ==========================================================================
   DASHBOARD FORM
    ========================================================================== */
-
+.dashboard-button{
+  display: inline;
+}
 
 .header-wrapper{
   background-color: $dark-grey;
@@ -243,9 +293,14 @@ select > .alternate-gothic{
 }
 
 .dashboard-button{
-  font-size: 1.5em;
   color: #fff;
   font-weight: 400;
+  height: 32px;
+}
+.dashboard-button {
+  a:hover{
+  text-decoration: none!important;
+}
 }
 .dashboard-submit:hover{
   background-color: #7BFFD9;
@@ -391,8 +446,8 @@ select > .alternate-gothic{
 
 .hex-color-text{
   color: #fff;
-  margin-top: 20px;
-  font-size: 4em;
+  margin-top: 35px;
+  font-size: 2em;
   opacity: 0.5;
   text-align: center;
 }

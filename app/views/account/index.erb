@@ -1,17 +1,17 @@
-    <div class="navbar  navbar-fixed-top" role="navigation">
+<!--     <div class="navbar  navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
 
         </div>
-        <div class="navbar-collapse collapse">
 
+        <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" action="/dashboard" method="post">
               <button class="form-control logout-button" >Logout
               </button>
           </form>
-        </div><!--/.navbar-collapse -->
+        </div>/.navbar-collapse
       </div>
-    </div>
+    </div>  -->
     <div class="page container">
 <section class="col-sm-10 col-xs-10 form-wrapper">
   <div class="header-wrapper">
@@ -23,15 +23,15 @@
 
   
   <h2>Assets</h2>
-  <div class="col-sm-4 upload-wrapper">
-    <input type="file" name="upload1" class="upload-button">
+    <div class="col-sm-4 upload-wrapper">
+      <input type="file" name="upload1" class="upload-button">
     </div>
     <div class="col-sm-4 upload-wrapper">
-    <input type="file" name="upload2" class="upload-button">
+      <input type="file" name="upload2" class="upload-button">
     </div>
 
     <div class="col-sm-4 upload-wrapper">
-    <input type="file" name="upload3" class="upload-button">
+      <input type="file" name="upload3" class="upload-button">
     </div>
 
   <h2>Colors</h2>
@@ -119,6 +119,145 @@
 
 
 </section>
+
+<!-- Modal -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span class="x-out" aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create An Account</h4>
+      </div><!--modal-header-->
+
+        <div class="modal-body">
+          <form action='/signup' method='post'>
+
+
+        <div class="row form-row">
+
+          <div class="row input-row">
+            <div class="col-sm-12">
+              <span>
+                <input class="basic-slide" id="brand" type="text" name="brand" placeholder="What is your brand?" />
+                <label for="brand">Brand</label>
+              </span>
+            </div>
+          </div>
+
+            <div class="row input-row">
+              <div class="col-sm-12">
+                <span>
+                  <input class="basic-slide" id="email" type="text" name="email" placeholder="We won't spam you!" />
+                  <label for="email">Email</label>
+                </span>
+              </div>
+            </div>
+
+          <div class="row input-row">
+            <div class="col-sm-12">
+            <span>
+              <input class="basic-slide" id="username" type="text" name="username" placeholder="What Should We Call You?" />
+              <label for="username">Username</label>
+            </span>
+            </div>
+          </div>
+
+          <div class="row input-row">
+            <div class="col-sm-12">
+            <span>
+              <input class="basic-slide" id="password" name="password" type="text" placeholder="Don't Forget!" />
+              <label for="password">Password</label>
+            </span>
+            </div>
+          </div>
+
+          <div class="row input-row">
+            <div class="col-sm-12">
+              <span>
+                <input class="basic-slide" id="website" type="text" placeholder="Website" />
+                <label for="website">Website</label>
+              </span>
+            </div>
+          </div>
+
+          <div>
+             <button type="submit" class="sign-up-button bam-button">Register</button>
+
+            </div>
+          </div>
+            </form>
+
+
+
+
+          <li class="hidden-in-session">
+              <form action='/signin' method='post' class="navbar-form " role="form">
+
+
+            
+
+
+<!-- <<<<<<< HEAD
+
+        <div>
+
+        </div>
+=======
+>>>>>>> c7b18af7c510c4a3d2e0796253bd24ac8d55a19d -->
+        </form>
+    </div>  
+
+<!--     <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div> -->
+
+      </div><!--modalbody-->
+    </div>
+  </div>
+
+</div>
+
+
+<div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span class="x-out" aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nice to see you again</h4>
+      </div><!--modal-header-->
+
+          <div class="modal-body">
+          <div class="col-sm-8 col-sm-offset-2">
+
+
+            
+          <form action="/signin" method="post">
+
+            <div class="form-group">
+              <span>
+                <input class="basic-slide" type="text" name="username" id="username-sign-in" placeholder="Username" class="form-control" />
+                <label for="username-sign-in">Username</label>
+              </span>
+            </div>
+
+            <div class="form-group">
+            <span>
+              <input class="basic-slide" type="password" name="password" id="password-sign-in"  placeholder="Password" class="form-control" />
+              <label for="password-sign-in">Password</label>
+            </span>
+            </div>
+
+            <button type="submit" class="sign-in-button bam-button nav-button ">Sign in</button>
+            </div>
+            </form>
+      </div>  
+    </div><!--modalbody-->
+  </div>
+</div>
+
+</div>
 
 
 
