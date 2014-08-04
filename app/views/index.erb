@@ -78,23 +78,6 @@
 
         <h2 id="colors">Colors</h2>
 
-// <script>
-// function copyToClipboard(text) {
-//     window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
-// }
-// $( document ).ready(function() {
-//     $('.one').click(function() {
-//     copyToClipboard("#<%= @hexcolor1 %>")
-//     });
-//       $('.two').click(function() {
-//     copyToClipboard("#<%= @hexcolor2 %>")
-//     });
-//         $('.three').click(function() {
-//     copyToClipboard("#<%= @hexcolor3 %>")
-//     });
-// });
-// </script>
-
       
         <div  class="col-sm-4 swatch" style=" height: 100px; background-color: #dadada; background-color: #<%= @hexcolor1 %>;">
           <h2 class="one hex-color-text">#<%= @hexcolor1 %></h2>
@@ -119,19 +102,24 @@
 
   <h2 id="typography">Typography</h2>
   <hr/>
-    <div class="col-sm-6 headline-box" >
+    
+    <ul>
+      <li><h3 style="font-family:'<%= @headline %>';">Headline: <%= @headline %></h3></li>
+      <li><p style="font-family:'<%= @body %>';">Body: <%= @body %></p></li>
+
+    </ul>
     <h2><%= @mission %></h2>
 
     
-    <h3 style="font-family:'<%= @body %>';">Headline: <%= @body %></h3>
-    </div>
+    
+   
     <% end %>
 
 <% if @hexcolor1 != nil %>
 <div class="col-sm-6 body-box" >
 
   <h2><%= @story %></h2>
-    <p style="font-family:'<%= @body %>';" class="body-text"></p>
+    
   <h3 style="font-family:'<%= @body %>';"> <%= @body %></h3>
 </div>
 <% end %>
