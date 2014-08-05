@@ -11,7 +11,7 @@ require 'carrierwave/orm/activerecord'
 require 'prawn'
 
 
-require 'pry'
+require 'pry' if development?
 
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))

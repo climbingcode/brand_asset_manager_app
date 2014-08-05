@@ -18,6 +18,10 @@ gem 'factory_girl'
 gem 'faker'
 gem "mini_magick"
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   gem 'pry'
   gem 'shotgun'
