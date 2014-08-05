@@ -147,12 +147,12 @@ ul {
 /* ==========================================================================
   BOOTSLIDER
    ========================================================================== */
+.slider-row .container {
+  padding-left: 0px;
+  padding-right: 0px; }
+
 #bootslider {
-  height: 500px;
-  width: 1170px;
   margin-top: 0px;
-  margin-left: -15px;
-  margin-right: -15px;
   margin-bottom: 0px; }
 
 .bs-controls {

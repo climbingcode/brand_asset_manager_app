@@ -23,7 +23,7 @@ class Bampdf < Prawn::Document
              :text_color => "001B76",
              :borders => [:bottom],
              :border_width => 2,
-             :border_color => '00FF00',
+             :border_color => '000000',
              :padding => 12
       end
 
@@ -36,7 +36,7 @@ class Bampdf < Prawn::Document
              :text_color => "FFFFFF",
              :borders => [:top],
              :border_width => 2,
-             :border_color => '00FF00',
+             :border_color => '000000',
              :padding => 12
       end
 
